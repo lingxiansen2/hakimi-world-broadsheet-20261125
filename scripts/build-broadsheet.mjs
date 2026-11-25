@@ -17,12 +17,11 @@ function loadAssetDataUri(filename) {
   return `data:image/jpeg;base64,${bytes.toString('base64')}`;
 }
 
-function renderPaintedPanel(filename, caption, heightPx, objPos = 'center center') {
+function renderPaintedPanel(filename, alt, heightPx, objPos = 'center center') {
   const src = loadAssetDataUri(filename);
   return `
   <div class="painted-panel" style="height:${heightPx}px">
-    <img src="${src}" alt="${esc(caption)}" style="object-position:${objPos};" />
-    <div class="painted-caption">${esc(caption)}</div>
+    <img src="${src}" alt="${esc(alt)}" style="object-position:${objPos};" />
   </div>`;
 }
 
@@ -76,7 +75,7 @@ function buildHtml() {
     height: 1024px;
     overflow: hidden;
     background: #faf5e8;
-    color: #141210;
+    color: #0e0c0a;
     font-family: "Segoe UI", Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
@@ -115,7 +114,7 @@ function buildHtml() {
     font-weight: 900;
     letter-spacing: 1.5px;
     line-height: 0.94;
-    color: #141210;
+    color: #0e0c0a;
   }
   .date-pill {
     background: #9b1c1c;
@@ -165,12 +164,12 @@ function buildHtml() {
     margin-bottom: 4px;
   }
 
-  /* Upper Row: 474 Map+Hero | 254 Asia | 254 Markets */
+  /* Upper Row: 474 Map+Oceania | 254 Space & Asia | 254 Markets & AI */
   .upper-grid {
     display: grid;
     grid-template-columns: 474px 254px 254px;
     gap: 8px;
-    height: 254px;
+    height: 264px;
     border-bottom: 2px solid #141210;
     padding-bottom: 5px;
     margin-bottom: 5px;
@@ -182,10 +181,10 @@ function buildHtml() {
     border-right: 1.2px solid #b5aa93;
     padding-right: 7px;
   }
-  .map-box { height: 168px; width: 100%; }
+  .map-box { height: 182px; width: 100%; }
   .hero-banner {
     background: #f2ead7;
-    border-left: 4px solid #9b1c1c;
+    border-left: 4px solid #1e5b3f;
     padding: 3px 7px;
     margin-top: 3px;
   }
@@ -195,11 +194,12 @@ function buildHtml() {
     font-weight: 900;
     line-height: 1.1;
     margin: 1px 0;
+    color: #0e0c0a;
   }
   .hero-body {
     font-size: 9.2px;
-    line-height: 1.15;
-    color: #201c18;
+    line-height: 1.14;
+    color: #1a1714;
   }
 
   .col-box {
@@ -211,12 +211,12 @@ function buildHtml() {
   }
   .col-box:last-child { border-right: none; padding-right: 0; }
 
-  /* Middle Showcase Row: 3 Columns with 6 Rich Scenes + 9 Lead Stories */
+  /* Middle Showcase Row: 3 Columns with 6 Unobscured Paintings + 9 Bold Leads */
   .middle-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 9px;
-    height: 368px;
+    height: 374px;
     border-bottom: 2px solid #141210;
     padding-bottom: 5px;
     margin-bottom: 5px;
@@ -246,27 +246,26 @@ function buildHtml() {
     padding: 0 2.5px;
   }
   .dateline {
-    font-size: 7.8px;
+    font-size: 7.9px;
     font-weight: 900;
     letter-spacing: 0.4px;
     color: #9b1c1c;
   }
   .story-head {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 11.4px;
+    font-size: 12px;
     font-weight: 900;
-    line-height: 1.09;
-    color: #141210;
+    line-height: 1.08;
+    color: #0e0c0a;
     margin-bottom: 1.5px;
   }
   .story-body {
-    font-size: 9px;
-    line-height: 1.14;
-    color: #25211c;
+    font-size: 9.1px;
+    line-height: 1.13;
+    color: #1a1714;
   }
   .illu-wrap { margin-bottom: 3px; }
   .painted-panel {
-    position: relative;
     width: 100%;
     border: 1.5px solid #201c18;
     overflow: hidden;
@@ -277,22 +276,6 @@ function buildHtml() {
     height: 100%;
     object-fit: cover;
     display: block;
-  }
-  .painted-caption {
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(16, 23, 38, 0.88);
-    color: #fde68a;
-    font-family: "Segoe UI", Arial, sans-serif;
-    font-size: 8.2px;
-    font-weight: 900;
-    letter-spacing: 0.45px;
-    padding: 2px 6px;
-    border-top: 1px solid rgba(253, 230, 138, 0.45);
-    text-align: center;
-    white-space: nowrap;
   }
 
   /* Bottom Band: 24-Story World in Brief */
@@ -306,11 +289,11 @@ function buildHtml() {
     background: #201c18;
     color: #fde68a;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 9.8px;
+    font-size: 9.6px;
     font-weight: 900;
     letter-spacing: 0.9px;
-    padding: 2.5px 7px;
-    margin-bottom: 4px;
+    padding: 2px 7px;
+    margin-bottom: 3px;
     display: flex;
     justify-content: space-between;
   }
@@ -330,19 +313,19 @@ function buildHtml() {
   }
   .brief-col:last-child { border-right: none; padding-right: 0; }
   .brief-head {
-    font-size: 8.6px;
+    font-size: 8.5px;
     font-weight: 900;
     letter-spacing: 0.7px;
     padding: 1.5px 4px;
     color: #fff;
-    margin-bottom: 2px;
+    margin-bottom: 1.5px;
   }
   .brief-item {
-    font-size: 8.35px;
-    line-height: 1.14;
-    color: #1f1c18;
+    font-size: 8.45px;
+    line-height: 1.12;
+    color: #1a1714;
     border-bottom: 1px dotted #d2c8b4;
-    padding: 1.5px 0 2px 0;
+    padding: 1px 0 1.5px 0;
   }
   .brief-item:last-child { border-bottom: none; }
   .brief-city { font-weight: 900; letter-spacing: 0.2px; }
@@ -378,12 +361,12 @@ function buildHtml() {
     <section class="upper-grid">
       <div class="map-panel">
         <div>
-          <div class="sec-bar" style="background:#141210">GLOBAL LOCATOR · SIX CONTINENTS · 25 NOV 2026</div>
+          <div class="sec-bar" style="background:#141210">GLOBAL LOCATOR · PINS 1–14 · SIX CONTINENTS · 25 NOV 2026</div>
           <div class="map-box">${renderWorldMapSvg()}</div>
         </div>
         <div class="hero-banner">
           <div class="story-meta">
-            <span class="pin" style="background:#9b1c1c">${esc(HERO_STORY.pin)}</span>
+            <span class="pin" style="background:#1e5b3f">${esc(HERO_STORY.pin)}</span>
             <span class="dateline">${esc(HERO_STORY.dateline)}</span>
           </div>
           <h2 class="hero-head">${esc(HERO_STORY.headline)}</h2>
@@ -392,14 +375,14 @@ function buildHtml() {
       </div>
 
       <div class="col-box">
-        <div class="sec-bar" style="background:#9b1c1c">ASIA-PACIFIC</div>
-        <div class="illu-wrap">${renderPaintedPanel('art-space.jpg', 'SHENZHOU-24 · CN + PK CREW', 90, 'center 42%')}</div>
+        <div class="sec-bar" style="background:#9b1c1c">SPACE &amp; ASIA-PACIFIC</div>
+        <div class="illu-wrap">${renderPaintedPanel('art-space.jpg', 'Shenzhou-24 Launch & Tiangong', 98, 'center 42%')}</div>
         ${TOP_RIGHT_COLS.asiaSpace.map((s) => renderStory(s, '#9b1c1c')).join('')}
       </div>
 
       <div class="col-box">
         <div class="sec-bar" style="background:#16324f">MARKETS &amp; AI</div>
-        <div class="illu-wrap">${renderPaintedPanel('art-markets-chip.jpg', 'KOSPI 5,006→4,697 · NVDA +31%', 90, 'center 48%')}</div>
+        <div class="illu-wrap">${renderPaintedPanel('art-markets-chip.jpg', 'AI Chip & Global Market Volatility', 98, 'center 48%')}</div>
         ${TOP_RIGHT_COLS.marketsTech.map((s) => renderStory(s, '#16324f')).join('')}
       </div>
     </section>
@@ -407,26 +390,26 @@ function buildHtml() {
     <section class="middle-grid">
       <div class="col-box">
         <div class="sec-bar" style="background:#16324f">AMERICAS &amp; CYBER</div>
-        <div class="illu-wrap">${renderPaintedPanel('art-cyber-defense.jpg', '$5B GOLDEN DOME · CIA/ODNI BREACH', 78, 'center 55%')}</div>
+        <div class="illu-wrap">${renderPaintedPanel('art-cyber-defense.jpg', 'Golden Dome & CIA ODNI Breach', 88, 'center 52%')}</div>
         ${MIDDLE_COLS.americas.top.map((s) => renderStory(s, '#16324f')).join('')}
-        <div class="illu-wrap" style="margin-top:3px">${renderPaintedPanel('art-justice-rescue.jpg', 'HUAWEI VERDICT · CARTAGENA 30 FREED', 76, 'center 48%')}</div>
+        <div class="illu-wrap" style="margin-top:3px">${renderPaintedPanel('art-justice-rescue.jpg', 'Huawei Verdict & Cartagena Rescue', 82, 'center 48%')}</div>
         ${MIDDLE_COLS.americas.bottom.map((s) => renderStory(s, '#16324f')).join('')}
       </div>
 
       <div class="col-box">
         <div class="sec-bar" style="background:#9b1c1c">EUROPE &amp; MIDDLE EAST</div>
-        <div class="illu-wrap">${renderPaintedPanel('art-winter-grid.jpg', 'KYIV GRID BLACKOUT · UK CAP £2,166', 78, 'center 45%')}</div>
+        <div class="illu-wrap">${renderPaintedPanel('art-winter-grid.jpg', 'Ukraine Winter Grid Blackout & UK Cap', 88, 'center 45%')}</div>
         ${MIDDLE_COLS.europeMena.top.map((s) => renderStory(s, '#9b1c1c')).join('')}
-        <div class="illu-wrap" style="margin-top:3px">${renderPaintedPanel('art-energy-crisis.jpg', 'RAS TANURA & HORMUZ TANKERS', 76, 'center 52%')}</div>
-        ${MIDDLE_COLS.europeMena.bottom.map((s) => renderStory(s, '#b4690e')).join('')}
+        <div class="illu-wrap" style="margin-top:3px">${renderPaintedPanel('art-energy-crisis.jpg', 'Ras Tanura Refinery & Hormuz Tankers', 82, 'center 50%')}</div>
+        ${MIDDLE_COLS.europeMena.bottom.map((s) => renderStory(s, '#9b1c1c')).join('')}
       </div>
 
       <div class="col-box">
         <div class="sec-bar" style="background:#1e5b3f">AFRICA, SPACE &amp; SPORT</div>
-        <div class="illu-wrap">${renderPaintedPanel('art-africa-ebola-cup.jpg', 'ITURI EBOLA: 11,613 · SENEGAL AFCON', 78, 'center 45%')}</div>
+        <div class="illu-wrap">${renderPaintedPanel('art-africa-ebola-cup.jpg', 'Ituri Ebola Pullout & Senegal AFCON Trophy', 88, 'center 44%')}</div>
         ${MIDDLE_COLS.africaScienceSport.top.map((s) => renderStory(s, '#1e5b3f')).join('')}
-        <div class="illu-wrap" style="margin-top:3px">${renderPaintedPanel('art-voyager-sport.jpg', 'VOYAGER 1 LIGHT-DAY · UCL · F1', 76, 'center 50%')}</div>
-        ${MIDDLE_COLS.africaScienceSport.bottom.map((s) => renderStory(s, '#16324f')).join('')}
+        <div class="illu-wrap" style="margin-top:3px">${renderPaintedPanel('art-voyager-sport.jpg', 'Voyager 1, Champions League & Qatar F1', 82, 'center 50%')}</div>
+        ${MIDDLE_COLS.africaScienceSport.bottom.map((s) => renderStory(s, '#1e5b3f')).join('')}
       </div>
     </section>
 
@@ -457,7 +440,7 @@ function buildHtml() {
 
     <footer class="footer-bar">
       <span>THE WORLD TODAY · WEDNESDAY, 25 NOVEMBER 2026</span>
-      <span>8 DRAWN SCENES · WORLD MAP · 14 LEAD STORIES + 24 BRIEFS (38 TOTAL)</span>
+      <span>8 PAINTED SCENES · WORLD MAP · 14 LEAD STORIES + 24 BRIEFS (38 TOTAL)</span>
       <span>VERIFIED 25 NOV 2026 UTC</span>
     </footer>
   </div>

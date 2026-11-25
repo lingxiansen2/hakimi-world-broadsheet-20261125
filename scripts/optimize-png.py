@@ -5,27 +5,27 @@ from PIL import Image
 raw_path = Path(sys.argv[1])
 out_path = Path(sys.argv[2])
 thumb_768 = Path(r"d:\workspace\AI链上金币\hakimi\logs\news-20261125-thumb-preview.png")
-thumb_320 = Path(r"d:\workspace\AI链上金币\hakimi\logs\news-320px-v5.png")
+thumb_300 = Path(r"d:\workspace\AI链上金币\hakimi\logs\news-v6-300px.png")
 
 img = Image.open(raw_path).convert("RGB")
 assert img.size == (1024, 1024), f"Unexpected dimensions: {img.size}"
 
-# Try lossless PNG first; if > 900 KiB (921,600 B), use crisp 4:4:4 JPEG (subsampling=0, quality=92)
+# Prefer lossless PNG if <= 1,048,576 bytes; otherwise save crisp 4:4:4 JPEG (q=93)
 img.save(out_path, format="PNG", optimize=True)
 size_bytes = out_path.stat().st_size
 fmt_used = "PNG"
 
-if size_bytes > 921_600:
-    img.save(out_path, format="JPEG", quality=92, subsampling=0, optimize=True)
+if size_bytes > 1_048_576:
+    img.save(out_path, format="JPEG", quality=93, subsampling=0, optimize=True)
     size_bytes = out_path.stat().st_size
-    fmt_used = "JPEG (4:4:4 q=92)"
+    fmt_used = "JPEG (4:4:4 q=93)"
 
 if size_bytes > 1_048_576:
-    img.save(out_path, format="JPEG", quality=88, subsampling=0, optimize=True)
+    img.save(out_path, format="JPEG", quality=89, subsampling=0, optimize=True)
     size_bytes = out_path.stat().st_size
-    fmt_used = "JPEG (4:4:4 q=88)"
+    fmt_used = "JPEG (4:4:4 q=89)"
 
-for dst, px in ((thumb_768, 768), (thumb_320, 320)):
+for dst, px in ((thumb_768, 768), (thumb_300, 300)):
     dst.parent.mkdir(parents=True, exist_ok=True)
     resized = img.resize((px, px), Image.Resampling.LANCZOS)
     resized.save(dst, format="PNG", optimize=True)
