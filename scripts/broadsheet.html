@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    width: 1024px;
+    height: 1024px;
+    overflow: hidden;
+    background: #faf5e8;
+    color: #141210;
+    font-family: "Segoe UI", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    width: 1024px;
+    height: 1024px;
+    padding: 9px 12px 7px 12px;
+    display: flex;
+    flex-direction: column;
+    background: #faf5e8;
+    border: 2px solid #26221d;
+  }
+  .top-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 7.8px;
+    font-weight: 700;
+    letter-spacing: 0.9px;
+    color: #4b4337;
+    border-bottom: 1px solid #8c806a;
+    padding-bottom: 2px;
+    margin-bottom: 3px;
+  }
+  .masthead-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2.5px solid #141210;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+  }
+  .masthead-title {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 36px;
+    font-weight: 900;
+    letter-spacing: 1.6px;
+    line-height: 0.95;
+    color: #141210;
+  }
+  .date-pill {
+    background: #9b1c1c;
+    color: #faf5e8;
+    padding: 5px 10px;
+    text-align: right;
+    border: 1px solid #141210;
+  }
+  .date-main {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
+    line-height: 1.05;
+  }
+  .date-sub {
+    font-size: 7.4px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: #fde68a;
+    margin-top: 1px;
+  }
+  .ticker {
+    background: #16324f;
+    color: #f8f4ea;
+    font-size: 8px;
+    padding: 3px 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    border: 1px solid #141210;
+  }
+  .tick-item b { color: #fde68a; font-weight: 800; }
+  .tick-down { font-style: normal; color: #fca5a5; font-weight: 800; }
+  .tick-warn { font-style: normal; color: #fcd34d; font-weight: 800; }
+  .tick-sep { color: #64748b; font-size: 7px; }
+
+  .upper-grid {
+    display: grid;
+    grid-template-columns: 492px 241px 241px;
+    gap: 11px;
+    height: 274px;
+    border-bottom: 2px solid #141210;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+  }
+  .map-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid #b5aa93;
+    padding-right: 8px;
+  }
+  .sec-bar {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 9.4px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 2px 5px;
+    color: #faf5e8;
+    margin-bottom: 4px;
+  }
+  .map-box {
+    height: 174px;
+    width: 100%;
+  }
+  .hero-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 4px;
+  }
+  .hero-card {
+    background: #f2ead7;
+    border-left: 3px solid #9b1c1c;
+    padding: 4px 6px;
+  }
+  .hero-head {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 1px 0 2px 0;
+  }
+  .hero-body {
+    font-size: 7.9px;
+    line-height: 1.18;
+    color: #292520;
+  }
+
+  .col-box {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #b5aa93;
+    padding-right: 8px;
+    overflow: hidden;
+  }
+  .col-box:last-child {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .lower-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 11px;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .story {
+    border-bottom: 1px solid #d5ccb7;
+    padding: 2px 0 2.5px 0;
+  }
+  .story:last-child {
+    border-bottom: none;
+  }
+  .story-meta {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 1px;
+  }
+  .pin {
+    display: inline-block;
+    min-width: 13px;
+    height: 10.5px;
+    line-height: 10.5px;
+    text-align: center;
+    font-size: 6.9px;
+    font-weight: 800;
+    color: #fff;
+    border-radius: 2px;
+    padding: 0 2px;
+  }
+  .dateline {
+    font-size: 7px;
+    font-weight: 800;
+    letter-spacing: 0.4px;
+    color: #9b1c1c;
+  }
+  .story-head {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 9px;
+    font-weight: 800;
+    line-height: 1.08;
+    color: #141210;
+    margin-bottom: 1px;
+  }
+  .story-body {
+    font-size: 7.55px;
+    line-height: 1.14;
+    color: #2a2621;
+  }
+  .illu-wrap {
+    margin-bottom: 3px;
+  }
+  .footer-bar {
+    border-top: 1.5px solid #141210;
+    padding-top: 2px;
+    margin-top: 2px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7.3px;
+    font-weight: 700;
+    letter-spacing: 0.6px;
+    color: #4b4337;
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <div class="top-meta">
+      <span>GLOBAL ARCHIVAL EDITION  ·  39 DISPATCHES  ·  ALL SIX INHABITED CONTINENTS</span>
+      <span>VOL. MMXXVI  ·  NO. 329  ·  25 NOV 2026</span>
+    </div>
+    <header class="masthead-row">
+      <div class="masthead-title">THE WORLD TODAY</div>
+      <div class="date-pill">
+        <div class="date-main">WEDNESDAY, 25 NOVEMBER 2026</div>
+        <div class="date-sub">WORLD NEWS IN ONE ARCHIVAL BROADSHEET</div>
+      </div>
+    </header>
+    <div class="ticker"><span class="tick-item"><b>NASDAQ</b> 23,734 <em class="tick-down">-1.48%</em></span><span class="tick-sep">│</span><span class="tick-item"><b>S&amp;P 500</b> 7,201 <em class="tick-down">-0.50%</em></span><span class="tick-sep">│</span><span class="tick-item"><b>KOSPI</b> 4,697.51 <em class="tick-down">-6.16%</em></span><span class="tick-sep">│</span><span class="tick-item"><b>NIKKEI</b> ~57,000 <em class="tick-down">-3.1%</em></span><span class="tick-sep">│</span><span class="tick-item"><b>BTC</b> $59,450 <em class="tick-down">-3.2%</em></span><span class="tick-sep">│</span><span class="tick-item"><b>BRENT</b> $88.20 <em class="tick-down">-1.2%</em></span><span class="tick-sep">│</span><span class="tick-item"><b>GOLD</b> $3,520 <em class="tick-down">-1.5%</em></span><span class="tick-sep">│</span><span class="tick-item"><b>UK CAP</b> £2,166 <em class="tick-warn">+26%</em></span></div>
+
+    <section class="upper-grid">
+      <div class="map-panel">
+        <div>
+          <div class="sec-bar" style="background:#141210">GLOBAL DISPATCH LOCATOR · 6 CONTINENTS · KEY FLASHPOINTS</div>
+          <div class="map-box">
+  <svg viewBox="0 0 480 168" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="display:block;background:#eef3f5;border:1px solid #b8ae97;">
+    <line x1="27.4" y1="0" x2="27.4" y2="168" stroke="#d9cfb8" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="68.6" y1="0" x2="68.6" y2="168" stroke="#d9cfb8" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="109.7" y1="0" x2="109.7" y2="168" stroke="#d9cfb8" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="150.9" y1="0" x2="150.9" y2="168" stroke="#d9cfb8" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="192.0" y1="0" x2="192.0" y2="168" stroke="#d9cfb8" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="233.1" y1="0" x2="233.1" y2="168" stroke="#d9cfb8" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="274.3" y1="0" x2="274.3" y2="168" stroke="#d9cfb8" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="315.4" y1="0" x2="315.4" y2="168" stroke="#d9cfb8" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="356.6" y1="0" x2="356.6" y2="168" stroke="#d9cfb8" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="397.7" y1="0" x2="397.7" y2="168" stroke="#d9cfb8" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="438.9" y1="0" x2="438.9" y2="168" stroke="#d9cfb8" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="0" y1="132.9" x2="480" y2="132.9" stroke="#d9cfb8" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="0" y1="95.3" x2="480" y2="95.3" stroke="#c7ba9d" stroke-width="0.8" stroke-dasharray="none"/><line x1="0" y1="57.7" x2="480" y2="57.7" stroke="#d9cfb8" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="0" y1="20.1" x2="480" y2="20.1" stroke="#d9cfb8" stroke-width="0.6" stroke-dasharray="2,2"/>
+    <path d="M 5.5,13.8 L 11.0,6.3 L 48.0,7.5 L 79.5,3.8 L 109.7,6.3 L 126.2,16.3 L 145.4,20.1 L 160.5,35.1 L 142.6,40.1 L 130.3,51.4 L 122.1,63.9 L 119.3,57.7 L 109.7,58.9 L 100.1,62.7 L 101.5,71.5 L 112.5,69.0 L 117.9,81.5 L 126.2,85.3 L 120.7,84.0 L 107.0,77.7 L 89.1,70.2 L 79.5,60.2 L 72.7,55.2 L 63.1,42.6 L 61.7,33.9 L 46.6,22.6 L 24.7,20.1 L 5.5,13.8 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 157.7,18.8 L 172.8,20.1 L 205.7,7.5 L 208.5,-6.3 L 161.8,-7.5 L 139.9,0.0 L 157.7,18.8 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 117.9,67.7 L 130.3,70.2 L 131.7,69.0 L 117.9,66.4 L 117.9,67.7 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 126.2,84.0 L 134.4,80.2 L 148.1,82.7 L 164.6,94.0 L 185.1,102.8 L 181.0,112.8 L 176.9,122.9 L 161.8,136.7 L 145.4,146.7 L 139.9,163.0 L 131.7,160.5 L 133.0,145.4 L 135.8,130.4 L 137.1,117.9 L 126.2,110.3 L 122.1,101.6 L 126.2,90.3 L 126.2,84.0 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 224.9,32.6 L 234.5,31.3 L 234.5,27.6 L 230.4,22.6 L 224.9,22.6 L 224.9,32.6 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 219.4,30.1 L 224.9,30.1 L 224.9,26.3 L 219.4,27.6 L 219.4,30.1 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 220.8,48.9 L 220.8,41.4 L 230.4,41.4 L 227.7,35.1 L 235.9,31.3 L 244.1,27.6 L 244.1,22.6 L 240.0,18.8 L 252.3,10.0 L 271.5,6.3 L 277.0,8.8 L 271.5,20.1 L 263.3,20.1 L 257.8,21.3 L 251.0,26.3 L 260.6,26.3 L 266.1,23.8 L 271.5,20.1 L 279.8,20.1 L 293.5,22.6 L 299.0,37.6 L 286.6,36.4 L 279.8,38.9 L 272.9,43.9 L 268.8,45.1 L 264.7,48.9 L 259.2,45.1 L 253.7,47.6 L 249.6,42.6 L 245.5,40.1 L 238.6,41.4 L 233.1,46.4 L 226.3,50.1 L 220.8,48.9 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 224.9,51.4 L 246.9,48.9 L 249.6,53.9 L 266.1,55.2 L 278.4,56.4 L 286.6,69.0 L 292.1,80.2 L 303.1,80.2 L 300.3,90.3 L 289.4,97.8 L 288.0,109.1 L 281.1,125.4 L 271.5,136.7 L 257.8,139.2 L 252.3,124.1 L 249.6,110.3 L 245.5,90.3 L 235.9,87.8 L 222.2,89.0 L 209.8,76.5 L 211.2,66.4 L 219.4,57.7 L 224.9,51.4 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 293.5,126.6 L 297.6,126.6 L 301.7,114.1 L 300.3,110.3 L 293.5,117.9 L 293.5,126.6 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 271.5,43.9 L 282.5,48.9 L 281.1,56.4 L 292.1,79.0 L 307.2,74.0 L 315.4,67.7 L 309.9,62.7 L 301.7,57.7 L 294.9,47.6 L 305.8,45.1 L 308.6,37.6 L 318.2,26.3 L 331.9,5.0 L 375.8,0.0 L 425.1,5.0 L 469.0,12.5 L 455.3,26.3 L 427.9,27.6 L 418.3,40.1 L 410.1,51.4 L 405.9,47.6 L 400.5,45.1 L 395.0,46.4 L 400.5,56.4 L 389.5,67.7 L 381.3,70.2 L 382.6,80.2 L 374.4,92.8 L 370.3,87.8 L 367.5,75.2 L 357.9,67.7 L 349.7,71.5 L 342.9,82.7 L 338.7,85.3 L 331.9,70.2 L 325.0,63.9 L 315.4,63.9 L 309.9,62.7 L 300.3,58.9 L 299.0,57.7 L 288.0,42.6 L 271.5,43.9 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 411.4,55.2 L 416.9,52.7 L 425.1,50.1 L 426.5,43.9 L 432.0,40.1 L 426.5,38.9 L 423.8,47.6 L 418.3,51.4 L 411.4,55.2 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 364.8,89.0 L 377.1,102.8 L 389.5,105.3 L 377.1,104.1 L 364.8,89.0 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 382.6,94.0 L 395.0,89.0 L 395.0,99.0 L 384.0,99.0 L 382.6,94.0 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 414.2,97.8 L 426.5,99.0 L 437.5,106.6 L 429.3,106.6 L 414.2,97.8 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 389.5,122.9 L 400.5,116.6 L 412.8,110.3 L 419.7,110.3 L 419.7,114.1 L 426.5,116.6 L 429.3,109.1 L 437.5,120.4 L 443.0,130.4 L 438.9,141.7 L 426.5,142.9 L 419.7,139.2 L 410.1,135.4 L 400.5,137.9 L 390.9,137.9 L 388.1,127.9 L 389.5,122.9 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/><path d="M 470.4,139.2 L 477.3,142.9 L 473.1,146.7 L 462.2,153.0 L 469.0,149.2 L 473.1,145.4 L 470.4,139.2 Z" fill="#e3d8be" stroke="#7d715c" stroke-width="0.9" stroke-linejoin="round"/>
+    <circle cx="310.4" cy="61.9" r="9.5" fill="none" stroke="#9b1c1c" stroke-width="1.1" stroke-dasharray="2,1.5" opacity="0.85"/><circle cx="275.0" cy="32.1" r="8.5" fill="none" stroke="#9b1c1c" stroke-width="1.1" stroke-dasharray="2,1.5" opacity="0.85"/><circle cx="370.7" cy="44.0" r="8.5" fill="none" stroke="#9b1c1c" stroke-width="1.1" stroke-dasharray="2,1.5" opacity="0.85"/>
+    <text x="172" y="64" font-family="Georgia, serif" font-size="7" font-style="italic" fill="#6f8796" letter-spacing="1.5">ATLANTIC</text>
+    <text x="34" y="108" font-family="Georgia, serif" font-size="7" font-style="italic" fill="#6f8796" letter-spacing="1.5">PACIFIC</text>
+    <text x="325" y="124" font-family="Georgia, serif" font-size="7" font-style="italic" fill="#6f8796" letter-spacing="1.5">INDIAN</text>
+    
+      <g>
+        <circle cx="370.7" cy="42.0" r="5.2" fill="#9b1c1c" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="370.7" y="44.2" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">1</text>
+      </g>
+      <g>
+        <circle cx="394.8" cy="46.3" r="5.2" fill="#9b1c1c" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="394.8" y="48.5" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">2</text>
+      </g>
+      <g>
+        <circle cx="409.3" cy="52.1" r="5.2" fill="#16324f" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="409.3" y="54.3" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">3</text>
+      </g>
+      <g>
+        <circle cx="429.7" cy="49.5" r="5.2" fill="#16324f" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="429.7" y="51.7" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">4</text>
+      </g>
+      <g>
+        <circle cx="437.6" cy="139.5" r="5.2" fill="#1e5b3f" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="437.6" y="141.7" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">5</text>
+      </g>
+      <g>
+        <circle cx="466.9" cy="145.1" r="5.2" fill="#1e5b3f" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="466.9" y="147.3" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">6</text>
+      </g>
+      <g>
+        <circle cx="371.0" cy="78.1" r="5.2" fill="#b4690e" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="371.0" y="80.3" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">7</text>
+      </g>
+      <g>
+        <circle cx="123.5" cy="49.5" r="5.2" fill="#16324f" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="123.5" y="51.7" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">8</text>
+      </g>
+      <g>
+        <circle cx="136.7" cy="43.3" r="5.2" fill="#16324f" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="136.7" y="45.5" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">11</text>
+      </g>
+      <g>
+        <circle cx="127.3" cy="32.4" r="5.2" fill="#16324f" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="127.3" y="34.6" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">12</text>
+      </g>
+      <g>
+        <circle cx="129.6" cy="82.2" r="5.2" fill="#9b1c1c" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="129.6" y="84.4" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">13</text>
+      </g>
+      <g>
+        <circle cx="97.2" cy="71.0" r="5.2" fill="#b4690e" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="97.2" y="73.2" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">14</text>
+      </g>
+      <g>
+        <circle cx="167.5" cy="115.1" r="5.2" fill="#1e5b3f" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="167.5" y="117.3" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">15</text>
+      </g>
+      <g>
+        <circle cx="279.0" cy="31.1" r="5.2" fill="#9b1c1c" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="279.0" y="33.3" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">16</text>
+      </g>
+      <g>
+        <circle cx="226.0" cy="28.7" r="5.2" fill="#9b1c1c" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="226.0" y="30.9" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">17</text>
+      </g>
+      <g>
+        <circle cx="241.0" cy="35.6" r="5.2" fill="#9b1c1c" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="241.0" y="37.8" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">19</text>
+      </g>
+      <g>
+        <circle cx="264.9" cy="23.8" r="5.2" fill="#9b1c1c" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="264.9" y="26.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">20</text>
+      </g>
+      <g>
+        <circle cx="293.2" cy="66.3" r="5.2" fill="#9b1c1c" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="293.2" y="68.5" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">23</text>
+      </g>
+      <g>
+        <circle cx="315.4" cy="60.9" r="5.2" fill="#9b1c1c" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="315.4" y="63.1" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">24</text>
+      </g>
+      <g>
+        <circle cx="284.4" cy="51.4" r="5.2" fill="#9b1c1c" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="284.4" y="53.6" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">25</text>
+      </g>
+      <g>
+        <circle cx="271.9" cy="59.7" r="5.2" fill="#b4690e" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="271.9" y="61.9" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">26</text>
+      </g>
+      <g>
+        <circle cx="274.1" cy="93.0" r="5.2" fill="#9b1c1c" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="274.1" y="95.2" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">27</text>
+      </g>
+      <g>
+        <circle cx="243.4" cy="83.9" r="5.2" fill="#1e5b3f" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="243.4" y="86.1" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">28</text>
+      </g>
+      <g>
+        <circle cx="271.5" cy="128.1" r="5.2" fill="#b4690e" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="271.5" y="130.3" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">29</text>
+      </g>
+      <g>
+        <circle cx="209.3" cy="76.9" r="5.2" fill="#1e5b3f" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="209.3" y="79.1" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">30</text>
+      </g>
+      <g>
+        <circle cx="65.8" cy="48.4" r="5.2" fill="#16324f" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="65.8" y="50.6" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">33</text>
+      </g>
+      <g>
+        <circle cx="400.8" cy="66.9" r="5.2" fill="#9b1c1c" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="400.8" y="69.1" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">34</text>
+      </g>
+      <g>
+        <circle cx="379.6" cy="103.1" r="5.2" fill="#b4690e" stroke="#faf5e8" stroke-width="0.9"/>
+        <text x="379.6" y="105.3" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="6.3" font-weight="800" fill="#ffffff">39</text>
+      </g>
+    <rect x="4" y="147" width="174" height="17" rx="2" fill="#faf5e8" fill-opacity="0.94" stroke="#9d9078" stroke-width="0.7"/>
+    <circle cx="12" cy="155.5" r="3.5" fill="#9b1c1c"/><text x="18" y="158" font-family="Segoe UI, Arial" font-size="6.8" font-weight="700" fill="#141210">FLASHPOINT</text>
+    <circle cx="72" cy="155.5" r="3.5" fill="#16324f"/><text x="78" y="158" font-family="Segoe UI, Arial" font-size="6.8" font-weight="700" fill="#141210">MARKETS/POL</text>
+    <circle cx="136" cy="155.5" r="3.5" fill="#1e5b3f"/><text x="142" y="158" font-family="Segoe UI, Arial" font-size="6.8" font-weight="700" fill="#141210">ENV/SPORT</text>
+  </svg></div>
+        </div>
+        <div class="hero-strip">
+    <div class="hero-card">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">1</span>
+        <span class="dateline">JIUQUAN, 25 NOV</span>
+      </div>
+      <h2 class="hero-head">Shenzhou-24 Launches With First Foreign Astronaut</h2>
+      <p class="hero-body">China orbited three crewmates to Tiangong on Long March-2F, including Pakistani payload specialist Muhammad Zeeshan Ali — the outpost’s first international crewmate.</p>
+    </div>
+    <div class="hero-card">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">23</span>
+        <span class="dateline">RIYADH / RAS TANURA, 25 NOV</span>
+      </div>
+      <h2 class="hero-head">Houthis Claim Drone Strikes on Refinery &amp; Capital</h2>
+      <p class="hero-body">Yemen’s Houthis claimed missile and drone attacks causing localized fires at Ras Tanura oil facilities and Riyadh’s financial district as Saudi defenses intercepted drones east.</p>
+    </div></div>
+      </div>
+
+      <div class="col-box">
+        <div class="sec-bar" style="background:#16324f">MARKETS, TECH &amp; AI</div>
+        <div class="illu-wrap">
+  <svg viewBox="0 0 232 54" width="100%" height="54" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1px solid #b9af99;background:#f4efe0;">
+    <line x1="8" y1="14" x2="156" y2="14" stroke="#d5cbb4" stroke-width="0.7"/>
+    <line x1="8" y1="27" x2="156" y2="27" stroke="#d5cbb4" stroke-width="0.7"/>
+    <line x1="8" y1="40" x2="156" y2="40" stroke="#d5cbb4" stroke-width="0.7"/>
+    <polygon points="10,13 32,16 54,14 74,21 96,24 114,34 132,31 152,43 152,45 10,45" fill="#9b1c1c" fill-opacity="0.16"/>
+    <polyline points="10,13 32,16 54,14 74,21 96,24 114,34 132,31 152,43" fill="none" stroke="#9b1c1c" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="152" cy="43" r="3" fill="#9b1c1c"/>
+    <text x="10" y="10" font-family="Segoe UI, Arial, sans-serif" font-size="7.4" font-weight="800" fill="#141210">KOSPI 4,697.51</text>
+    <text x="96" y="10" font-family="Segoe UI, Arial, sans-serif" font-size="7.6" font-weight="900" fill="#9b1c1c">-6.16% HALT</text>
+    <text x="10" y="51" font-family="Segoe UI, Arial, sans-serif" font-size="6.8" font-weight="700" fill="#16324f">NASDAQ -1.48%  ·  BTC $59.4K</text>
+    <g transform="translate(194,27)">
+      <rect x="-22" y="-19" width="44" height="38" rx="3" fill="#16324f" stroke="#141210" stroke-width="1"/>
+      <rect x="-14" y="-11" width="28" height="22" rx="1.5" fill="#b4690e" stroke="#faf5e8" stroke-width="0.8"/>
+      <text x="0" y="2.5" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7" font-weight="900" fill="#ffffff">AI GPU</text>
+      <line x1="-26" y1="-9" x2="-22" y2="-9" stroke="#141210" stroke-width="1.5"/>
+      <line x1="-26" y1="0" x2="-22" y2="0" stroke="#141210" stroke-width="1.5"/>
+      <line x1="-26" y1="9" x2="-22" y2="9" stroke="#141210" stroke-width="1.5"/>
+      <line x1="22" y1="-9" x2="26" y2="-9" stroke="#141210" stroke-width="1.5"/>
+      <line x1="22" y1="0" x2="26" y2="0" stroke="#141210" stroke-width="1.5"/>
+      <line x1="22" y1="9" x2="26" y2="9" stroke="#141210" stroke-width="1.5"/>
+    </g>
+  </svg></div>
+        
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#16324f">31</span>
+        <span class="dateline">NEW YORK, 25 NOV</span>
+      </div>
+      <h3 class="story-head">AI Rout Pulls Nasdaq Down 1.48%; Gold &amp; Oil Ease</h3>
+      <p class="story-body">Nasdaq fell 1.48% to 23,734 and S&amp;P 500 dipped 0.50% to 7,201 on chip profit-taking; Brent hovered near $88 and gold slipped to $3,520/oz.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#16324f">32</span>
+        <span class="dateline">NEW YORK / SINGAPORE, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Bitcoin Drops Below $60K; $270M AI Loans Probed</h3>
+      <p class="story-body">BTC slid ~3% below $59,500 on spot ETF outflows; Reuters revealed Alice Huang-linked firms pledged $270M in China AI servers for bank credit.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#16324f">33</span>
+        <span class="dateline">SANTA CLARA, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Reinstated Nvidia CEO Apologizes on Staff Call</h3>
+      <p class="story-body">Jensen Huang told staff he made &quot;terrible mistakes&quot; after returning as CEO, while denying White House pressure influenced Nvidia’s board.</p>
+    </article>
+      </div>
+
+      <div class="col-box">
+        <div class="sec-bar" style="background:#1e5b3f">SPACE, SCIENCE &amp; SPORT</div>
+        <div class="illu-wrap">
+  <svg viewBox="0 0 232 48" width="100%" height="48" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1px solid #b9af99;background:#0d1b2a;">
+    <circle cx="18" cy="9" r="1" fill="#fff"/><circle cx="62" cy="13" r="0.8" fill="#fde68a"/><circle cx="115" cy="8" r="1" fill="#fff"/>
+    <circle cx="164" cy="34" r="0.9" fill="#fff"/><circle cx="204" cy="12" r="1.1" fill="#93c5fd"/>
+    <circle cx="24" cy="24" r="5.5" fill="#2563eb" stroke="#93c5fd" stroke-width="0.9"/>
+    <path d="M 32 24 L 154 24" stroke="#60a5fa" stroke-width="1" stroke-dasharray="3,2"/>
+    <text x="92" y="20" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7.1" font-weight="800" fill="#fde68a">1 LIGHT-DAY · 25.9B KM</text>
+    <g transform="translate(184,23)">
+      <ellipse cx="-8" cy="0" rx="4.5" ry="11" fill="#e2e8f0" stroke="#94a3b8" stroke-width="0.8"/>
+      <line x1="-3" y1="0" x2="26" y2="-9" stroke="#cbd5e1" stroke-width="1.2"/>
+      <line x1="-2" y1="3" x2="18" y2="12" stroke="#f59e0b" stroke-width="1.3"/>
+      <circle cx="-16" cy="0" r="7.5" fill="none" stroke="#60a5fa" stroke-width="0.7" stroke-dasharray="2,1.5"/>
+    </g>
+    <text x="8" y="43" font-family="Segoe UI, Arial" font-size="6.7" font-weight="700" fill="#cbd5e1">VOYAGER 1 (49 YRS) · AI TESS EXOPLANETS</text>
+  </svg></div>
+        
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#1e5b3f">35</span>
+        <span class="dateline">PASADENA, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Voyager 1 Crosses One Light-Day; AI Flags Planets</h3>
+      <p class="story-body">NASA’s 49-year-old probe reached 25.9B km (24h signal lag) as amateur astronomers used AI tools to spot exoplanet transits in TESS data.</p>
+    </article>
+        <div class="illu-wrap" style="margin-top:3px">
+  <svg viewBox="0 0 232 45" width="100%" height="45" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1px solid #b9af99;background:#16324f;">
+    <rect x="6" y="6" width="68" height="30" rx="2" fill="#1e5b3f" stroke="#faf5e8" stroke-width="0.9"/>
+    <line x1="40" y1="6" x2="40" y2="36" stroke="#faf5e8" stroke-width="0.8"/>
+    <circle cx="40" cy="21" r="6" fill="none" stroke="#faf5e8" stroke-width="0.8"/>
+    <text x="40" y="43" text-anchor="middle" font-family="Segoe UI, Arial" font-size="6.4" font-weight="800" fill="#fde68a">UCL MD5</text>
+    <g transform="translate(122,23)">
+      <polygon points="-28,3 22,3 30,-1 18,-4 -12,-5 -24,-2" fill="#dc2626" stroke="#fff" stroke-width="0.6"/>
+      <circle cx="-18" cy="4" r="4" fill="#0f172a" stroke="#cbd5e1" stroke-width="1"/>
+      <circle cx="14" cy="4" r="4" fill="#0f172a" stroke="#cbd5e1" stroke-width="1"/>
+      <text x="0" y="-8" text-anchor="middle" font-family="Segoe UI, Arial" font-size="6.8" font-weight="800" fill="#fff">QATAR F1</text>
+    </g>
+    <g transform="translate(198,19)">
+      <circle cx="0" cy="0" r="10.5" fill="#d97706" stroke="#141210" stroke-width="0.9"/>
+      <path d="M -10.5 0 L 10.5 0 M 0 -10.5 L 0 10.5" stroke="#141210" stroke-width="0.8"/>
+      <text x="0" y="19" text-anchor="middle" font-family="Segoe UI, Arial" font-size="6.4" font-weight="800" fill="#fde68a">NBA CUP</text>
+    </g>
+  </svg></div>
+        
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#1e5b3f">37</span>
+        <span class="dateline">PARIS / LISBON, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Champions League Matchday 5 Grips Europe</h3>
+      <p class="story-body">PSG hosted AS Roma and Man United visited Sporting CP alongside Inter–Stuttgart and Brugge–Liverpool in league-phase action.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#1e5b3f">38</span>
+        <span class="dateline">LUSAIL / BOSTON, 25 NOV</span>
+      </div>
+      <h3 class="story-head">F1 Arrives in Qatar; Tatum Scores 41 in NBA Cup</h3>
+      <p class="story-body">Teams landed at Lusail with Antonelli already champion; Jayson Tatum scored 41 for Boston and Cooper Flagg lifted Dallas in NBA Cup play.</p>
+    </article>
+      </div>
+    </section>
+
+    <section class="lower-grid">
+      <div class="col-box">
+        <div class="sec-bar" style="background:#16324f">AMERICAS</div>
+        <div class="illu-wrap">
+  <svg viewBox="0 0 232 48" width="100%" height="48" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1px solid #b9af99;background:#f3ede0;">
+    <rect x="14" y="30" width="54" height="9" fill="#16324f"/>
+    <path d="M 27 30 A 14 14 0 0 1 55 30 Z" fill="#334155"/>
+    <line x1="41" y1="10" x2="41" y2="17" stroke="#141210" stroke-width="1.3"/>
+    <text x="41" y="45.5" text-anchor="middle" font-family="Segoe UI, Arial" font-size="6.4" font-weight="800" fill="#16324f">$5B SHIELD / DEC 11</text>
+    <line x1="116" y1="8" x2="116" y2="37" stroke="#141210" stroke-width="1.4"/>
+    <line x1="96" y1="14" x2="136" y2="14" stroke="#b4690e" stroke-width="1.4"/>
+    <polygon points="96,14 90,25 102,25" fill="none" stroke="#141210" stroke-width="1"/>
+    <polygon points="136,14 130,25 142,25" fill="none" stroke="#141210" stroke-width="1"/>
+    <text x="116" y="45.5" text-anchor="middle" font-family="Segoe UI, Arial" font-size="6.4" font-weight="800" fill="#9b1c1c">HUAWEI VERDICT</text>
+    <g transform="translate(188,18)">
+      <ellipse cx="0" cy="0" rx="13" ry="5.5" fill="#1e5b3f"/>
+      <line x1="-18" y1="-7" x2="18" y2="-7" stroke="#141210" stroke-width="1.2"/>
+      <line x1="13" y1="0" x2="24" y2="-3" stroke="#1e5b3f" stroke-width="1.8"/>
+      <polygon points="-4,5 -15,19 7,19" fill="#f59e0b" fill-opacity="0.32"/>
+    </g>
+    <text x="190" y="45.5" text-anchor="middle" font-family="Segoe UI, Arial" font-size="6.4" font-weight="800" fill="#1e5b3f">CARTAGENA RESCUE</text>
+  </svg></div>
+        
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#16324f">8</span>
+        <span class="dateline">WASHINGTON, 25 NOV</span>
+      </div>
+      <h3 class="story-head">White House Seeks Stopgap &amp; $5B Missile Shield</h3>
+      <p class="story-body">Ahead of Dec. 11 shutdown risk, Trump asked Congress to freeze spending through March plus add $5B for Golden Dome defense; Iran war costs hit $48B.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#16324f">9</span>
+        <span class="dateline">WASHINGTON, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Order Curbs Contractor Replies to Congress</h3>
+      <p class="story-body">Executive order directs federal contractors to consult the White House before answering House oversight inquiries; GOP pushes Ueland for GAO.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#16324f">10</span>
+        <span class="dateline">PALM BEACH, 25 NOV</span>
+      </div>
+      <h3 class="story-head">NATO Chief Rutte Meets Trump; Pentagon Rebukes Ottawa</h3>
+      <p class="story-body">Rutte held Mar-a-Lago talks before Brussels briefings as the Pentagon criticized Canada’s F-35 review and tapped automakers for drones.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#16324f">11</span>
+        <span class="dateline">NEW YORK, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Jury Convicts Huawei of Fraud, Acquits on RICO</h3>
+      <p class="story-body">Brooklyn federal jurors convicted Huawei of bank fraud and trade-secret conspiracy over Iran ties and IP while acquitting on racketeering.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#16324f">12</span>
+        <span class="dateline">OTTAWA / TORONTO, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Alto High-Speed Rail Land Powers Spark Clash</h3>
+      <p class="story-body">MPs challenged Minister MacKinnon’s expropriation bill for Toronto–Quebec rail and 750 Parks Canada cuts; Sceptres shut out Charge 4-0.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#16324f">13</span>
+        <span class="dateline">CARTAGENA, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Special Forces Free 30 Hostages in Dawn Raid</h3>
+      <p class="story-body">Colombian commandos stormed an Exito store after a 15-hour siege from a botched van heist; all captives rescued, one captor killed.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#16324f">14</span>
+        <span class="dateline">MEXICO CITY, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Reforma March Disrupts Transit Under Police Alert</h3>
+      <p class="story-body">Crowds marched from Paseo de la Reforma to the Zocalo, triggering U.S. Embassy transit advisories and heavy police deployments.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#16324f">15</span>
+        <span class="dateline">BRASILIA / HAVANA, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Brazil Storms Displace 20,000; WHO Aids Cuba</h3>
+      <p class="story-body">Southern Brazil assessed deadly floods as ECLAC opened innovation talks in Brasilia; WHO chief Tedros pledged $2M for Cuban vaccines.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#16324f">36</span>
+        <span class="dateline">CHICAGO / WASHINGTON, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Holiday Flyers Jam Hubs; PAHO Issues H5N1 Alert</h3>
+      <p class="story-body">Thanksgiving crowds packed O’Hare as PAHO urged Americas-wide bird flu surveillance and the Army set an Iowa ordnance detonation.</p>
+    </article>
+      </div>
+
+      <div class="col-box">
+        <div class="sec-bar" style="background:#9b1c1c">EUROPE &amp; UKRAINE</div>
+        <div class="illu-wrap">
+  <svg viewBox="0 0 232 52" width="100%" height="52" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1px solid #b9af99;background:#f1ece0;">
+    <g stroke="#1e293b" stroke-width="1.4" fill="none">
+      <line x1="36" y1="6" x2="26" y2="42"/>
+      <line x1="36" y1="6" x2="46" y2="42"/>
+      <line x1="22" y1="16" x2="50" y2="16"/>
+      <line x1="20" y1="26" x2="52" y2="26"/>
+    </g>
+    <polygon points="64,10 55,25 62,25 57,39 72,21 64,21" fill="#9b1c1c" stroke="#141210" stroke-width="0.7"/>
+    <text x="12" y="49" font-family="Segoe UI, Arial" font-size="6.7" font-weight="800" fill="#9b1c1c">5 REGIONS BLACKOUT</text>
+    <line x1="114" y1="5" x2="114" y2="47" stroke="#b9af99" stroke-width="1"/>
+    <path d="M 134 38 A 32 32 0 0 1 202 38" fill="none" stroke="#1e5b3f" stroke-width="5.5"/>
+    <path d="M 158 8 A 32 32 0 0 1 202 38" fill="none" stroke="#9b1c1c" stroke-width="5.5"/>
+    <line x1="168" y1="38" x2="195" y2="18" stroke="#141210" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="168" cy="38" r="3" fill="#141210"/>
+    <text x="168" y="49" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7" font-weight="900" fill="#9b1c1c">UK CAP +26% · £2,166</text>
+  </svg></div>
+        
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">16</span>
+        <span class="dateline">KYIV / ODESA, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Russian Air Strikes Cut Power in Five Regions</h3>
+      <p class="story-body">Overnight raids struck Ukraine’s energy grid across Dnipropetrovsk, Donetsk, Zaporizhzhia, Odesa, and Kharkiv, causing casualties in Odesa and Kyiv.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">17</span>
+        <span class="dateline">LONDON, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Ofgem Lifts UK Energy Price Cap 26% to £2,166</h3>
+      <p class="story-body">Regulator raised typical dual-fuel bills 26% starting Jan. 1, citing wholesale gas spikes tied to Middle East conflict.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">18</span>
+        <span class="dateline">LONDON, 25 NOV</span>
+      </div>
+      <h3 class="story-head">MI5 &amp; MoD Alert Defense Firms to Sabotage</h3>
+      <p class="story-body">British intelligence warned weapons suppliers backing Ukraine of escalating Russian proxy sabotage plots across European infrastructure.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">19</span>
+        <span class="dateline">BRUSSELS, 25 NOV</span>
+      </div>
+      <h3 class="story-head">90 Leaders Urge €70B EU Pledge for Ukraine</h3>
+      <p class="story-body">Ahead of Thursday’s summit, 90 European figures urged closing Ukraine’s €70B 2027 gap; envoys weighed curbs on Russian tourist visas.</p>
+    </article>
+        <div class="illu-wrap" style="margin-top:3px">
+  <svg viewBox="0 0 232 52" width="100%" height="52" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1px solid #b9af99;background:#f4efe0;">
+    <text x="6" y="11" font-family="Segoe UI, Arial" font-size="7.2" font-weight="900" fill="#16324f">EU NET BUDGET BALANCES (IW REPORT · €B)</text>
+    <line x1="96" y1="16" x2="96" y2="47" stroke="#141210" stroke-width="1"/>
+    <rect x="44" y="17" width="52" height="6.5" fill="#9b1c1c"/><text x="41" y="22.5" text-anchor="end" font-family="Segoe UI, Arial" font-size="6.4" font-weight="800" fill="#141210">DE -14.9</text>
+    <rect x="76" y="25" width="20" height="6.5" fill="#9b1c1c"/><text x="41" y="30.5" text-anchor="end" font-family="Segoe UI, Arial" font-size="6.4" font-weight="800" fill="#141210">FR -5.4</text>
+    <rect x="83" y="33" width="13" height="6.5" fill="#9b1c1c"/><text x="41" y="38.5" text-anchor="end" font-family="Segoe UI, Arial" font-size="6.4" font-weight="800" fill="#141210">IT -3.3</text>
+    <rect x="96" y="40.5" width="24" height="6.5" fill="#1e5b3f"/><text x="123" y="46" font-family="Segoe UI, Arial" font-size="6.4" font-weight="800" fill="#1e5b3f">PL +6.7B NET</text>
+    <rect x="135" y="17" width="91" height="20" rx="2" fill="#16324f"/>
+    <text x="180.5" y="26" text-anchor="middle" font-family="Segoe UI, Arial" font-size="6.7" font-weight="800" fill="#fde68a">UKRAINE 2027 GAP</text>
+    <text x="180.5" y="34" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7.4" font-weight="900" fill="#ffffff">€70B SUMMIT CALL</text>
+  </svg></div>
+        
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">20</span>
+        <span class="dateline">WARSAW / RENNES, 25 NOV</span>
+      </div>
+      <h3 class="story-head">E5 Wraps Poland Force Drills; AI Defense Hub</h3>
+      <p class="story-body">2,800 allied troops finished KOALICJA 26.2 deployment drills in Poland as France, Germany, Italy, Poland, and Sweden launched ICAID.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">21</span>
+        <span class="dateline">FRANKFURT, 25 NOV</span>
+      </div>
+      <h3 class="story-head">ECB Leadership Slate Forms Amid Debt Debate</h3>
+      <p class="story-body">Negotiations lined up Spain’s de Cos for ECB president, France’s Boone for board, and Germany’s Brunnermeier as chief economist.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">22</span>
+        <span class="dateline">BRUSSELS, 25 NOV</span>
+      </div>
+      <h3 class="story-head">EU Cites Four Nations on Tax; Budget Gaps Out</h3>
+      <p class="story-body">Commission warned Germany, Spain, Italy, and Poland over pension taxes as IW data showed Poland +€6.7B net recipient vs Germany -€14.9B.</p>
+    </article>
+      </div>
+
+      <div class="col-box">
+        <div class="sec-bar" style="background:#b4690e">MIDDLE EAST &amp; AFRICA</div>
+        <div class="illu-wrap">
+  <svg viewBox="0 0 232 48" width="100%" height="48" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1px solid #b9af99;background:#f7efe1;">
+    <rect x="14" y="15" width="9" height="21" fill="#334155"/>
+    <rect x="27" y="10" width="6" height="26" fill="#475569"/>
+    <polygon points="27,10 30,2 33,10" fill="#dc2626"/>
+    <circle cx="30" cy="5" r="4" fill="#f59e0b" fill-opacity="0.85"/>
+    <path d="M 0 36 Q 18 33 36 36 T 72 36 T 108 36 T 144 36 T 180 36 T 232 36 L 232 48 L 0 48 Z" fill="#16324f"/>
+    <polygon points="78,34 156,34 164,28 74,28" fill="#1e293b"/>
+    <rect x="84" y="21" width="16" height="7" fill="#e2e8f0" stroke="#1e293b" stroke-width="0.7"/>
+    <rect x="108" y="26" width="38" height="2.5" fill="#9b1c1c"/>
+    <polygon points="154,31 160,21 164,28 171,22 167,31 175,34 163,35" fill="#ef4444" stroke="#facc15" stroke-width="0.7"/>
+    <circle cx="198" cy="17" r="11" fill="none" stroke="#9b1c1c" stroke-width="0.8" stroke-dasharray="2,2"/>
+    <circle cx="198" cy="17" r="6" fill="none" stroke="#9b1c1c" stroke-width="0.8"/>
+    <line x1="193" y1="17" x2="203" y2="17" stroke="#141210" stroke-width="1.2"/>
+    <line x1="198" y1="12" x2="198" y2="22" stroke="#141210" stroke-width="1.2"/>
+    <text x="6" y="45" font-family="Segoe UI, Arial" font-size="6.9" font-weight="800" fill="#fde68a">RAS TANURA STRIKES · HORMUZ TANKER MINES</text>
+  </svg></div>
+        
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">24</span>
+        <span class="dateline">HORMUZ / TEHRAN, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Mine Blasts Hit Tankers; US Weighs Iran Options</h3>
+      <p class="story-body">IRGC reported explosions on two tankers in Hormuz; Trump said Iran ops stay funded through January while Washington mulled targeted steps.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">25</span>
+        <span class="dateline">JERUSALEM / GAZA / BEIRUT, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Gaza Crisis Deepens; US Issues Mideast Alerts</h3>
+      <p class="story-body">Medics warned of rising Gaza meningitis and water shortages while Israeli forces held south Lebanon zones and Israel alleged Iran chemical work.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">26</span>
+        <span class="dateline">CAIRO / PORT SUDAN, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Egypt, Sudan Guard Red Sea; $55M Water Aid</h3>
+      <p class="story-body">PM Idris and al-Sisi rejected non-coastal military control of the Red Sea; AfDB and UNICEF launched a $55M Port Sudan clean water plan.</p>
+    </article>
+        <div class="illu-wrap" style="margin-top:3px">
+  <svg viewBox="0 0 232 45" width="100%" height="45" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1px solid #b9af99;background:#f3ede0;">
+    <path d="M 16 8 L 40 8 L 40 23 C 40 31 28 37 28 37 C 28 37 16 31 16 23 Z" fill="#9b1c1c" stroke="#141210" stroke-width="0.9"/>
+    <rect x="25.5" y="13" width="5" height="15" fill="#fff"/>
+    <rect x="20.5" y="18" width="15" height="5" fill="#fff"/>
+    <text x="48" y="18" font-family="Segoe UI, Arial" font-size="7" font-weight="800" fill="#9b1c1c">ITURI EBOLA: 11,613</text>
+    <text x="48" y="28" font-family="Segoe UI, Arial" font-size="6.6" font-weight="700" fill="#141210">PORT SUDAN $55M WATER</text>
+    <text x="48" y="38" font-family="Segoe UI, Arial" font-size="6.6" font-weight="700" fill="#1e5b3f">SENEGAL WINS AFCON CAS</text>
+    <g transform="translate(204,22)">
+      <path d="M -9,-11 L 9,-11 L 6,2 C 4,6 -4,6 -6,2 Z" fill="#d97706" stroke="#141210" stroke-width="0.9"/>
+      <rect x="-2" y="5" width="4" height="5" fill="#b4690e"/>
+      <rect x="-6" y="10" width="12" height="3" fill="#141210"/>
+      <text x="0" y="-2" text-anchor="middle" font-family="Segoe UI, Arial" font-size="5.8" font-weight="900" fill="#fff">CAF</text>
+    </g>
+  </svg></div>
+        
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#1e5b3f">27</span>
+        <span class="dateline">ITURI, DR CONGO, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Clashes Trap WHO Staff Amid 11,613 Ebola Cases</h3>
+      <p class="story-body">Fighting pinned WHO responders in an Ituri maternity ward as Bundibugyo Ebola tolls climbed past 11,613 cases and 5,678 deaths.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#1e5b3f">28</span>
+        <span class="dateline">ABUJA / NAIROBI, 25 NOV</span>
+      </div>
+      <h3 class="story-head">African Media Pact; Kenya–Zimbabwe Sign 8 Deals</h3>
+      <p class="story-body">Nigeria, Kenya, and Sudan urged an African anti-misinformation alliance at WPRF Abuja; Nairobi and Harare set up a Binational Commission.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#1e5b3f">29</span>
+        <span class="dateline">JOHANNESBURG, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Naspers Profit Up 12%; Rand Slides on Sell-Off</h3>
+      <p class="story-body">Naspers posted 12% core earnings growth via Tencent as the rand fell; a court convicted a Zimbabwean caught boarding for Russia’s army.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#1e5b3f">30</span>
+        <span class="dateline">DAKAR / LAUSANNE, 25 NOV</span>
+      </div>
+      <h3 class="story-head">CAS Overturns Ruling, Restores AFCON to Senegal</h3>
+      <p class="story-body">Sports arbitration panel handed the Africa Cup of Nations title back to Senegal, reversing an earlier ruling in its dispute with Morocco.</p>
+    </article>
+      </div>
+
+      <div class="col-box">
+        <div class="sec-bar" style="background:#9b1c1c">ASIA-PACIFIC &amp; OCEANIA</div>
+        <div class="illu-wrap">
+  <svg viewBox="0 0 232 50" width="100%" height="50" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1px solid #b9af99;background:#102238;">
+    <defs>
+      <linearGradient id="plume" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#f59e0b"/><stop offset="60%" stop-color="#ef4444"/><stop offset="100%" stop-color="#fde68a" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <circle cx="24" cy="10" r="1" fill="#fff"/><circle cx="58" cy="18" r="0.8" fill="#fff"/><circle cx="152" cy="9" r="0.9" fill="#fff"/><circle cx="218" cy="7" r="0.8" fill="#fde68a"/>
+    <path d="M 10 40 Q 116 6 224 19" fill="none" stroke="#60a5fa" stroke-width="0.9" stroke-dasharray="3,2"/>
+    <g transform="translate(184,15) rotate(-8)">
+      <rect x="-12" y="-3" width="24" height="6" rx="1.5" fill="#e2e8f0" stroke="#0f172a" stroke-width="0.8"/>
+      <rect x="-20" y="-8" width="12" height="3.5" fill="#3b82f6" stroke="#93c5fd" stroke-width="0.6"/>
+      <rect x="-20" y="4.5" width="12" height="3.5" fill="#3b82f6" stroke="#93c5fd" stroke-width="0.6"/>
+      <rect x="8" y="-8" width="12" height="3.5" fill="#3b82f6" stroke="#93c5fd" stroke-width="0.6"/>
+      <rect x="8" y="4.5" width="12" height="3.5" fill="#3b82f6" stroke="#93c5fd" stroke-width="0.6"/>
+    </g>
+    <polygon points="30,30 78,24 78,30" fill="url(#plume)"/>
+    <g transform="translate(96,25) rotate(12)">
+      <rect x="-24" y="-3" width="38" height="6" fill="#f8fafc" stroke="#1e293b" stroke-width="0.9"/>
+      <polygon points="14,-3 24,0 14,3" fill="#dc2626"/>
+      <rect x="4" y="-3" width="3" height="6" fill="#dc2626"/>
+    </g>
+    <rect x="4" y="35" width="144" height="12" rx="1.5" fill="#0f172a" fill-opacity="0.9" stroke="#d97706" stroke-width="0.7"/>
+    <text x="9" y="43.5" font-family="Segoe UI, Arial, sans-serif" font-size="7.2" font-weight="800" fill="#fde68a">SHENZHOU-24 · CN + PK CREW</text>
+  </svg></div>
+        
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">2</span>
+        <span class="dateline">BEIJING / SHANGHAI, 25 NOV</span>
+      </div>
+      <h3 class="story-head">CCDI Probes Shanghai Party Chief Chen Jining</h3>
+      <p class="story-body">Politburo member Chen Jining was placed under discipline probe, marking Xi’s fourth Politburo purge since 2025; US–China farm talks met.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">3</span>
+        <span class="dateline">SEOUL, 25 NOV</span>
+      </div>
+      <h3 class="story-head">KOSPI Plunges 6.16%, Triggering Sidecar Halt</h3>
+      <p class="story-body">Benchmark fell below 5,000 to 4,697.51 on foreign selling in Samsung and SK hynix; regional data centers redirected AI GPUs West.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">34</span>
+        <span class="dateline">TOKYO / TAIPEI, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Nikkei Drops ~3%; Taiwan Deepfake Ring Exposed</h3>
+      <p class="story-body">Tokyo chip stocks tumbled with Wall Street, while BBC Verify exposed a China-linked AI deepfake campaign targeting Taiwan elections.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">4</span>
+        <span class="dateline">TOKYO, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Japan Plans Kairos Rocket Killer-Sat Monitor</h3>
+      <p class="story-body">Defense Ministry scheduled a Jan. 22 private launch to track foreign satellites from LEO to GEO amid debate over the Shenzhen summit.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">5</span>
+        <span class="dateline">CANBERRA, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Australia, Solomons Ink Base-Barring Pact</h3>
+      <p class="story-body">PMs Albanese and Wale signed a treaty barring foreign naval bases; Canberra apologized to LGBTQ+ veterans and passed online care rules.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">6</span>
+        <span class="dateline">WELLINGTON, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Wild Kiwi Return After 150 Yrs; Dark Web Bust</h3>
+      <p class="story-body">Capital Kiwi lifted Wellington’s wild kiwi population past 300; police seized 250 kg of drugs packed in dip sachets in Operation TorNado.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">7</span>
+        <span class="dateline">BANGKOK / MANILA, 25 NOV</span>
+      </div>
+      <h3 class="story-head">Thailand Targets 48% Informal GDP; Rice Tightens</h3>
+      <p class="story-body">Central bank urged formalizing small firms while curbing illicit flows; Philippine import demand tightened Asian rice export balances.</p>
+    </article>
+    <article class="story">
+      <div class="story-meta">
+        <span class="pin" style="background:#9b1c1c">39</span>
+        <span class="dateline">MALE / JAKARTA, 25 NOV</span>
+      </div>
+      <h3 class="story-head">India Pushes Ocean Security; Indonesia Asset Law</h3>
+      <p class="story-body">NSA Doval backed Indian Ocean patrols in Male and urged inclusive AI rules; Indonesia passed its 20-year-awaited Asset Forfeiture bill.</p>
+    </article>
+      </div>
+    </section>
+
+    <footer class="footer-bar">
+      <span>THE WORLD TODAY · WEDNESDAY, 25 NOVEMBER 2026</span>
+      <span>9 EDITORIAL SCENES &amp; CHARTS · WORLD MAP · 39 UNIQUE DISPATCHES</span>
+      <span>ALL FACTS VERIFIED 25 NOV 2026 UTC</span>
+    </footer>
+  </div>
+</body>
+</html>
