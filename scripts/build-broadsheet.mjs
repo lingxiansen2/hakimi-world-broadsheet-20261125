@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -7,19 +7,30 @@ import {
   renderWorldMapSvg,
   sceneAfricaRich,
   sceneCourtCartagena,
-  sceneHormuzRich,
-  sceneMarketsRich,
-  sceneShenzhouRich,
   sceneSpaceSportsRich,
-  sceneUkraineUkRich,
   sceneWashingtonCyber,
 } from './illustrations.mjs';
 
 const SCRIPTS_DIR = dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = resolve(SCRIPTS_DIR, '..');
+const ASSETS_DIR = join(SCRIPTS_DIR, 'assets');
 const HTML_PATH = join(SCRIPTS_DIR, 'broadsheet.html');
 const RAW_PNG_PATH = join(SCRIPTS_DIR, 'broadsheet-raw.png');
 const ENTRY_PNG_PATH = join(ROOT_DIR, 'entry.png');
+
+function loadAssetDataUri(filename) {
+  const bytes = readFileSync(join(ASSETS_DIR, filename));
+  return `data:image/jpeg;base64,${bytes.toString('base64')}`;
+}
+
+function renderPaintedPanel(filename, caption, heightPx, objPos = 'center center') {
+  const src = loadAssetDataUri(filename);
+  return `
+  <div class="painted-panel" style="height:${heightPx}px">
+    <img src="${src}" alt="${esc(caption)}" style="object-position:${objPos};" />
+    <div class="painted-caption">${esc(caption)}</div>
+  </div>`;
+}
 
 function esc(str) {
   return String(str)
@@ -260,6 +271,35 @@ function buildHtml() {
     color: #25211c;
   }
   .illu-wrap { margin-bottom: 3px; }
+  .painted-panel {
+    position: relative;
+    width: 100%;
+    border: 1.5px solid #201c18;
+    overflow: hidden;
+    background: #141210;
+  }
+  .painted-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .painted-caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(16, 23, 38, 0.88);
+    color: #fde68a;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 8.2px;
+    font-weight: 900;
+    letter-spacing: 0.45px;
+    padding: 2px 6px;
+    border-top: 1px solid rgba(253, 230, 138, 0.45);
+    text-align: center;
+    white-space: nowrap;
+  }
 
   /* Bottom Band: 24-Story World in Brief */
   .brief-band {
@@ -359,13 +399,13 @@ function buildHtml() {
 
       <div class="col-box">
         <div class="sec-bar" style="background:#9b1c1c">ASIA-PACIFIC</div>
-        <div class="illu-wrap">${sceneShenzhouRich()}</div>
+        <div class="illu-wrap">${renderPaintedPanel('art-space.jpg', 'SHENZHOU-24 · CN + PK CREW', 90, 'center 42%')}</div>
         ${TOP_RIGHT_COLS.asiaSpace.map((s) => renderStory(s, '#9b1c1c')).join('')}
       </div>
 
       <div class="col-box">
         <div class="sec-bar" style="background:#16324f">MARKETS &amp; AI</div>
-        <div class="illu-wrap">${sceneMarketsRich()}</div>
+        <div class="illu-wrap">${renderPaintedPanel('art-markets-chip.jpg', 'KOSPI 5,006→4,697 · NVDA +31%', 90, 'center 48%')}</div>
         ${TOP_RIGHT_COLS.marketsTech.map((s) => renderStory(s, '#16324f')).join('')}
       </div>
     </section>
@@ -381,9 +421,9 @@ function buildHtml() {
 
       <div class="col-box">
         <div class="sec-bar" style="background:#9b1c1c">EUROPE &amp; MIDDLE EAST</div>
-        <div class="illu-wrap">${sceneUkraineUkRich()}</div>
+        <div class="illu-wrap">${renderPaintedPanel('art-winter-grid.jpg', 'KYIV GRID BLACKOUT · UK CAP £2,166', 78, 'center 45%')}</div>
         ${MIDDLE_COLS.europeMena.top.map((s) => renderStory(s, '#9b1c1c')).join('')}
-        <div class="illu-wrap" style="margin-top:3px">${sceneHormuzRich()}</div>
+        <div class="illu-wrap" style="margin-top:3px">${renderPaintedPanel('art-energy-crisis.jpg', 'RAS TANURA & HORMUZ TANKERS', 76, 'center 52%')}</div>
         ${MIDDLE_COLS.europeMena.bottom.map((s) => renderStory(s, '#b4690e')).join('')}
       </div>
 
