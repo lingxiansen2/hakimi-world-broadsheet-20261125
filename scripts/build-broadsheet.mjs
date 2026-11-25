@@ -2,17 +2,17 @@ import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { COLUMNS, EDITION_META, HERO_STORY, MARKET_TICKERS, TOP_RIGHT_COLS } from './news-data.mjs';
+import { EDITION_META, HERO_STORY, MARKET_TICKERS, MIDDLE_COLS, TOP_RIGHT_COLS, WORLD_IN_BRIEF } from './news-data.mjs';
 import {
   renderWorldMapSvg,
-  sceneAfricaLarge,
-  sceneAmericasLarge,
-  sceneAmericasSouthLarge,
-  sceneEuropeLarge,
-  sceneHormuzLarge,
-  sceneMarketsLarge,
-  sceneShenzhouLarge,
-  sceneSpaceSportsLarge,
+  sceneAfricaRich,
+  sceneCourtCartagena,
+  sceneHormuzRich,
+  sceneMarketsRich,
+  sceneShenzhouRich,
+  sceneSpaceSportsRich,
+  sceneUkraineUkRich,
+  sceneWashingtonCyber,
 } from './illustrations.mjs';
 
 const SCRIPTS_DIR = dirname(fileURLToPath(import.meta.url));
@@ -41,6 +41,17 @@ function renderStory(item, accent = '#16324f') {
     </article>`;
 }
 
+function renderBriefList(items, accent) {
+  return items
+    .map(
+      (b) => `
+      <div class="brief-item">
+        <span class="brief-city" style="color:${accent}">${esc(b.city)}:</span> ${esc(b.text)}
+      </div>`
+    )
+    .join('');
+}
+
 function renderTickerStrip() {
   return MARKET_TICKERS.map((t) => {
     const cls = t.dir === 'warn' ? 'tick-warn' : 'tick-down';
@@ -67,7 +78,7 @@ function buildHtml() {
   .page {
     width: 1024px;
     height: 1024px;
-    padding: 10px 12px 8px 12px;
+    padding: 8px 11px 7px 11px;
     display: flex;
     flex-direction: column;
     background: #faf5e8;
@@ -77,195 +88,240 @@ function buildHtml() {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 9px;
+    font-size: 8.4px;
     font-weight: 800;
-    letter-spacing: 0.9px;
+    letter-spacing: 0.8px;
     color: #4b4337;
-    border-bottom: 1.5px solid #8c806a;
+    border-bottom: 1.2px solid #8c806a;
     padding-bottom: 2px;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
   .masthead-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid #141210;
-    padding-bottom: 4px;
-    margin-bottom: 5px;
+    border-bottom: 2.5px solid #141210;
+    padding-bottom: 3px;
+    margin-bottom: 4px;
   }
   .masthead-title {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 42px;
+    font-size: 38px;
     font-weight: 900;
     letter-spacing: 1.5px;
-    line-height: 0.95;
+    line-height: 0.94;
     color: #141210;
   }
   .date-pill {
     background: #9b1c1c;
     color: #faf5e8;
-    padding: 6px 12px;
+    padding: 4px 11px;
     text-align: right;
     border: 1.5px solid #141210;
   }
   .date-main {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 16.5px;
+    font-size: 15.5px;
     font-weight: 900;
     letter-spacing: 0.6px;
     line-height: 1.05;
   }
   .date-sub {
-    font-size: 8.5px;
+    font-size: 7.8px;
     font-weight: 800;
-    letter-spacing: 0.9px;
+    letter-spacing: 0.8px;
     color: #fde68a;
-    margin-top: 2px;
+    margin-top: 1px;
   }
   .ticker {
     background: #16324f;
     color: #f8f4ea;
-    font-size: 9.6px;
-    padding: 4px 8px;
+    font-size: 9px;
+    padding: 3px 7px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 7px;
-    border: 1.5px solid #141210;
+    margin-bottom: 5px;
+    border: 1.2px solid #141210;
   }
   .tick-item b { color: #fde68a; font-weight: 900; }
   .tick-down { font-style: normal; color: #fca5a5; font-weight: 800; }
   .tick-warn { font-style: normal; color: #fcd34d; font-weight: 800; }
-  .tick-sep { color: #64748b; font-size: 8.5px; }
+  .tick-sep { color: #64748b; font-size: 8px; }
 
-  /* Upper Band: 488px Map+Hero | 246px Asia | 246px Markets */
+  .sec-bar {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    color: #faf5e8;
+    margin-bottom: 4px;
+  }
+
+  /* Upper Row: 474 Map+Hero | 254 Asia | 254 Markets */
   .upper-grid {
     display: grid;
-    grid-template-columns: 488px 246px 246px;
-    gap: 10px;
-    height: 300px;
-    border-bottom: 2.5px solid #141210;
-    padding-bottom: 6px;
-    margin-bottom: 6px;
+    grid-template-columns: 474px 254px 254px;
+    gap: 8px;
+    height: 254px;
+    border-bottom: 2px solid #141210;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
   }
   .map-panel {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-right: 1.5px solid #b5aa93;
-    padding-right: 8px;
+    border-right: 1.2px solid #b5aa93;
+    padding-right: 7px;
   }
-  .sec-bar {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 0.9px;
-    text-transform: uppercase;
-    padding: 3px 7px;
-    color: #faf5e8;
-    margin-bottom: 5px;
-  }
-  .map-box {
-    height: 204px;
-    width: 100%;
-  }
+  .map-box { height: 168px; width: 100%; }
   .hero-banner {
     background: #f2ead7;
     border-left: 4px solid #9b1c1c;
-    padding: 4px 8px;
-    margin-top: 4px;
+    padding: 3px 7px;
+    margin-top: 3px;
   }
   .hero-head {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 13.5px;
+    font-size: 12.6px;
     font-weight: 900;
-    line-height: 1.12;
-    margin: 1px 0 2px 0;
-    color: #141210;
+    line-height: 1.1;
+    margin: 1px 0;
   }
   .hero-body {
-    font-size: 10.2px;
-    line-height: 1.18;
+    font-size: 9.2px;
+    line-height: 1.15;
     color: #201c18;
   }
 
   .col-box {
     display: flex;
     flex-direction: column;
-    border-right: 1.5px solid #b5aa93;
-    padding-right: 8px;
+    border-right: 1.2px solid #b5aa93;
+    padding-right: 7px;
     overflow: hidden;
   }
-  .col-box:last-child {
-    border-right: none;
-    padding-right: 0;
-  }
+  .col-box:last-child { border-right: none; padding-right: 0; }
 
-  /* Lower 3-Column Visual Grid */
-  .lower-grid {
+  /* Middle Showcase Row: 3 Columns with 6 Rich Scenes + 9 Lead Stories */
+  .middle-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 11px;
-    flex: 1;
-    overflow: hidden;
+    gap: 9px;
+    height: 368px;
+    border-bottom: 2px solid #141210;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
   }
 
   .story {
-    border-bottom: 1px solid #d0c6af;
-    padding: 3px 0 4px 0;
+    border-bottom: 1px solid #d5ccb7;
+    padding: 2px 0 2.5px 0;
   }
-  .story:last-child {
-    border-bottom: none;
-  }
+  .story:last-child { border-bottom: none; }
   .story-meta {
     display: flex;
     align-items: center;
-    gap: 5px;
-    margin-bottom: 1.5px;
+    gap: 4px;
+    margin-bottom: 1px;
   }
   .pin {
     display: inline-block;
-    min-width: 16px;
-    height: 13.5px;
-    line-height: 13.5px;
+    min-width: 14px;
+    height: 12px;
+    line-height: 12px;
     text-align: center;
-    font-size: 8.8px;
+    font-size: 8px;
     font-weight: 900;
     color: #fff;
     border-radius: 2px;
-    padding: 0 3px;
+    padding: 0 2.5px;
   }
   .dateline {
-    font-size: 8.6px;
+    font-size: 7.8px;
     font-weight: 900;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
     color: #9b1c1c;
   }
   .story-head {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 12.6px;
+    font-size: 11.4px;
     font-weight: 900;
-    line-height: 1.1;
+    line-height: 1.09;
     color: #141210;
-    margin-bottom: 2px;
+    margin-bottom: 1.5px;
   }
   .story-body {
-    font-size: 10px;
-    line-height: 1.18;
-    color: #231f1a;
+    font-size: 9px;
+    line-height: 1.14;
+    color: #25211c;
   }
-  .illu-wrap {
+  .illu-wrap { margin-bottom: 3px; }
+
+  /* Bottom Band: 24-Story World in Brief */
+  .brief-band {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .brief-banner {
+    background: #201c18;
+    color: #fde68a;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 9.8px;
+    font-weight: 900;
+    letter-spacing: 0.9px;
+    padding: 2.5px 7px;
     margin-bottom: 4px;
-  }
-  .footer-bar {
-    border-top: 2px solid #141210;
-    padding-top: 3px;
-    margin-top: 3px;
     display: flex;
     justify-content: space-between;
-    font-size: 8.8px;
-    font-weight: 800;
+  }
+  .brief-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 9px;
+    flex: 1;
+    overflow: hidden;
+  }
+  .brief-col {
+    border-right: 1px solid #c2b8a3;
+    padding-right: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .brief-col:last-child { border-right: none; padding-right: 0; }
+  .brief-head {
+    font-size: 8.6px;
+    font-weight: 900;
     letter-spacing: 0.7px;
+    padding: 1.5px 4px;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .brief-item {
+    font-size: 8.35px;
+    line-height: 1.14;
+    color: #1f1c18;
+    border-bottom: 1px dotted #d2c8b4;
+    padding: 1.5px 0 2px 0;
+  }
+  .brief-item:last-child { border-bottom: none; }
+  .brief-city { font-weight: 900; letter-spacing: 0.2px; }
+
+  .footer-bar {
+    border-top: 1.8px solid #141210;
+    padding-top: 2px;
+    margin-top: 2px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
     color: #4b4337;
   }
 </style>
@@ -303,47 +359,72 @@ function buildHtml() {
 
       <div class="col-box">
         <div class="sec-bar" style="background:#9b1c1c">ASIA-PACIFIC</div>
-        <div class="illu-wrap">${sceneShenzhouLarge()}</div>
+        <div class="illu-wrap">${sceneShenzhouRich()}</div>
         ${TOP_RIGHT_COLS.asiaSpace.map((s) => renderStory(s, '#9b1c1c')).join('')}
       </div>
 
       <div class="col-box">
         <div class="sec-bar" style="background:#16324f">MARKETS &amp; AI</div>
-        <div class="illu-wrap">${sceneMarketsLarge()}</div>
+        <div class="illu-wrap">${sceneMarketsRich()}</div>
         ${TOP_RIGHT_COLS.marketsTech.map((s) => renderStory(s, '#16324f')).join('')}
       </div>
     </section>
 
-    <section class="lower-grid">
+    <section class="middle-grid">
       <div class="col-box">
-        <div class="sec-bar" style="background:#16324f">AMERICAS</div>
-        <div class="illu-wrap">${sceneAmericasLarge()}</div>
-        ${COLUMNS.americas.slice(0, 2).map((s) => renderStory(s, '#16324f')).join('')}
-        <div class="illu-wrap" style="margin-top:4px">${sceneAmericasSouthLarge()}</div>
-        ${COLUMNS.americas.slice(2).map((s) => renderStory(s, '#16324f')).join('')}
+        <div class="sec-bar" style="background:#16324f">AMERICAS &amp; CYBER</div>
+        <div class="illu-wrap">${sceneWashingtonCyber()}</div>
+        ${MIDDLE_COLS.americas.top.map((s) => renderStory(s, '#16324f')).join('')}
+        <div class="illu-wrap" style="margin-top:3px">${sceneCourtCartagena()}</div>
+        ${MIDDLE_COLS.americas.bottom.map((s) => renderStory(s, '#16324f')).join('')}
       </div>
 
       <div class="col-box">
         <div class="sec-bar" style="background:#9b1c1c">EUROPE &amp; MIDDLE EAST</div>
-        <div class="illu-wrap">${sceneEuropeLarge()}</div>
-        ${COLUMNS.europeMena.slice(0, 3).map((s) => renderStory(s, '#9b1c1c')).join('')}
-        <div class="illu-wrap" style="margin-top:4px">${sceneHormuzLarge()}</div>
-        ${COLUMNS.europeMena.slice(3).map((s) => renderStory(s, '#b4690e')).join('')}
+        <div class="illu-wrap">${sceneUkraineUkRich()}</div>
+        ${MIDDLE_COLS.europeMena.top.map((s) => renderStory(s, '#9b1c1c')).join('')}
+        <div class="illu-wrap" style="margin-top:3px">${sceneHormuzRich()}</div>
+        ${MIDDLE_COLS.europeMena.bottom.map((s) => renderStory(s, '#b4690e')).join('')}
       </div>
 
       <div class="col-box">
-        <div class="sec-bar" style="background:#1e5b3f">AFRICA, SCIENCE &amp; SPORT</div>
-        <div class="illu-wrap">${sceneAfricaLarge()}</div>
-        ${COLUMNS.africaScienceSport.slice(0, 3).map((s) => renderStory(s, '#1e5b3f')).join('')}
-        <div class="illu-wrap" style="margin-top:4px">${sceneSpaceSportsLarge()}</div>
-        ${COLUMNS.africaScienceSport.slice(3).map((s) => renderStory(s, '#16324f')).join('')}
+        <div class="sec-bar" style="background:#1e5b3f">AFRICA, SPACE &amp; SPORT</div>
+        <div class="illu-wrap">${sceneAfricaRich()}</div>
+        ${MIDDLE_COLS.africaScienceSport.top.map((s) => renderStory(s, '#1e5b3f')).join('')}
+        <div class="illu-wrap" style="margin-top:3px">${sceneSpaceSportsRich()}</div>
+        ${MIDDLE_COLS.africaScienceSport.bottom.map((s) => renderStory(s, '#16324f')).join('')}
+      </div>
+    </section>
+
+    <section class="brief-band">
+      <div class="brief-banner">
+        <span>WORLD IN BRIEF · 24 ADDITIONAL DISPATCHES (WEDNESDAY, 25 NOVEMBER 2026)</span>
+        <span>ALL 6 INHABITED CONTINENTS</span>
+      </div>
+      <div class="brief-grid">
+        <div class="brief-col">
+          <div class="brief-head" style="background:#16324f">AMERICAS · 6 BRIEFS</div>
+          ${renderBriefList(WORLD_IN_BRIEF.americas, '#16324f')}
+        </div>
+        <div class="brief-col">
+          <div class="brief-head" style="background:#9b1c1c">EUROPE · 6 BRIEFS</div>
+          ${renderBriefList(WORLD_IN_BRIEF.europe, '#9b1c1c')}
+        </div>
+        <div class="brief-col">
+          <div class="brief-head" style="background:#b4690e">MIDEAST &amp; AFRICA · 6 BRIEFS</div>
+          ${renderBriefList(WORLD_IN_BRIEF.menaAfrica, '#9b1c1c')}
+        </div>
+        <div class="brief-col">
+          <div class="brief-head" style="background:#1e5b3f">ASIA-PACIFIC · 6 BRIEFS</div>
+          ${renderBriefList(WORLD_IN_BRIEF.asiaPacific, '#1e5b3f')}
+        </div>
       </div>
     </section>
 
     <footer class="footer-bar">
       <span>THE WORLD TODAY · WEDNESDAY, 25 NOVEMBER 2026</span>
-      <span>8 LARGE ILLUSTRATED SCENES · WORLD MAP · 20 FLAGSHIP DISPATCHES</span>
-      <span>VERIFIED 25 NOV 2026</span>
+      <span>8 DRAWN SCENES · WORLD MAP · 14 LEAD STORIES + 24 BRIEFS (38 TOTAL)</span>
+      <span>VERIFIED 25 NOV 2026 UTC</span>
     </footer>
   </div>
 </body>

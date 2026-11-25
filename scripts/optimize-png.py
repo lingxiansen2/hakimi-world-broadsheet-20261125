@@ -5,7 +5,7 @@ from PIL import Image
 raw_path = Path(sys.argv[1])
 out_path = Path(sys.argv[2])
 thumb_768 = Path(r"d:\workspace\AI链上金币\hakimi\logs\news-20261125-thumb-preview.png")
-thumb_320 = Path(r"d:\workspace\AI链上金币\hakimi\logs\news-320px-v2.png")
+thumb_320 = Path(r"d:\workspace\AI链上金币\hakimi\logs\news-320px-v3.png")
 
 img = Image.open(raw_path).convert("RGB")
 assert img.size == (1024, 1024), f"Unexpected dimensions: {img.size}"

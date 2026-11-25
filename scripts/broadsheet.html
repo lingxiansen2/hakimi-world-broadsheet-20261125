@@ -16,7 +16,7 @@
   .page {
     width: 1024px;
     height: 1024px;
-    padding: 10px 12px 8px 12px;
+    padding: 8px 11px 7px 11px;
     display: flex;
     flex-direction: column;
     background: #faf5e8;
@@ -26,195 +26,240 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 9px;
+    font-size: 8.4px;
     font-weight: 800;
-    letter-spacing: 0.9px;
+    letter-spacing: 0.8px;
     color: #4b4337;
-    border-bottom: 1.5px solid #8c806a;
+    border-bottom: 1.2px solid #8c806a;
     padding-bottom: 2px;
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
   .masthead-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid #141210;
-    padding-bottom: 4px;
-    margin-bottom: 5px;
+    border-bottom: 2.5px solid #141210;
+    padding-bottom: 3px;
+    margin-bottom: 4px;
   }
   .masthead-title {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 42px;
+    font-size: 38px;
     font-weight: 900;
     letter-spacing: 1.5px;
-    line-height: 0.95;
+    line-height: 0.94;
     color: #141210;
   }
   .date-pill {
     background: #9b1c1c;
     color: #faf5e8;
-    padding: 6px 12px;
+    padding: 4px 11px;
     text-align: right;
     border: 1.5px solid #141210;
   }
   .date-main {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 16.5px;
+    font-size: 15.5px;
     font-weight: 900;
     letter-spacing: 0.6px;
     line-height: 1.05;
   }
   .date-sub {
-    font-size: 8.5px;
+    font-size: 7.8px;
     font-weight: 800;
-    letter-spacing: 0.9px;
+    letter-spacing: 0.8px;
     color: #fde68a;
-    margin-top: 2px;
+    margin-top: 1px;
   }
   .ticker {
     background: #16324f;
     color: #f8f4ea;
-    font-size: 9.6px;
-    padding: 4px 8px;
+    font-size: 9px;
+    padding: 3px 7px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 7px;
-    border: 1.5px solid #141210;
+    margin-bottom: 5px;
+    border: 1.2px solid #141210;
   }
   .tick-item b { color: #fde68a; font-weight: 900; }
   .tick-down { font-style: normal; color: #fca5a5; font-weight: 800; }
   .tick-warn { font-style: normal; color: #fcd34d; font-weight: 800; }
-  .tick-sep { color: #64748b; font-size: 8.5px; }
+  .tick-sep { color: #64748b; font-size: 8px; }
 
-  /* Upper Band: 488px Map+Hero | 246px Asia | 246px Markets */
+  .sec-bar {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    color: #faf5e8;
+    margin-bottom: 4px;
+  }
+
+  /* Upper Row: 474 Map+Hero | 254 Asia | 254 Markets */
   .upper-grid {
     display: grid;
-    grid-template-columns: 488px 246px 246px;
-    gap: 10px;
-    height: 300px;
-    border-bottom: 2.5px solid #141210;
-    padding-bottom: 6px;
-    margin-bottom: 6px;
+    grid-template-columns: 474px 254px 254px;
+    gap: 8px;
+    height: 254px;
+    border-bottom: 2px solid #141210;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
   }
   .map-panel {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-right: 1.5px solid #b5aa93;
-    padding-right: 8px;
+    border-right: 1.2px solid #b5aa93;
+    padding-right: 7px;
   }
-  .sec-bar {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 11px;
-    font-weight: 900;
-    letter-spacing: 0.9px;
-    text-transform: uppercase;
-    padding: 3px 7px;
-    color: #faf5e8;
-    margin-bottom: 5px;
-  }
-  .map-box {
-    height: 204px;
-    width: 100%;
-  }
+  .map-box { height: 168px; width: 100%; }
   .hero-banner {
     background: #f2ead7;
     border-left: 4px solid #9b1c1c;
-    padding: 4px 8px;
-    margin-top: 4px;
+    padding: 3px 7px;
+    margin-top: 3px;
   }
   .hero-head {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 13.5px;
+    font-size: 12.6px;
     font-weight: 900;
-    line-height: 1.12;
-    margin: 1px 0 2px 0;
-    color: #141210;
+    line-height: 1.1;
+    margin: 1px 0;
   }
   .hero-body {
-    font-size: 10.2px;
-    line-height: 1.18;
+    font-size: 9.2px;
+    line-height: 1.15;
     color: #201c18;
   }
 
   .col-box {
     display: flex;
     flex-direction: column;
-    border-right: 1.5px solid #b5aa93;
-    padding-right: 8px;
+    border-right: 1.2px solid #b5aa93;
+    padding-right: 7px;
     overflow: hidden;
   }
-  .col-box:last-child {
-    border-right: none;
-    padding-right: 0;
-  }
+  .col-box:last-child { border-right: none; padding-right: 0; }
 
-  /* Lower 3-Column Visual Grid */
-  .lower-grid {
+  /* Middle Showcase Row: 3 Columns with 6 Rich Scenes + 9 Lead Stories */
+  .middle-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 11px;
-    flex: 1;
-    overflow: hidden;
+    gap: 9px;
+    height: 368px;
+    border-bottom: 2px solid #141210;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
   }
 
   .story {
-    border-bottom: 1px solid #d0c6af;
-    padding: 3px 0 4px 0;
+    border-bottom: 1px solid #d5ccb7;
+    padding: 2px 0 2.5px 0;
   }
-  .story:last-child {
-    border-bottom: none;
-  }
+  .story:last-child { border-bottom: none; }
   .story-meta {
     display: flex;
     align-items: center;
-    gap: 5px;
-    margin-bottom: 1.5px;
+    gap: 4px;
+    margin-bottom: 1px;
   }
   .pin {
     display: inline-block;
-    min-width: 16px;
-    height: 13.5px;
-    line-height: 13.5px;
+    min-width: 14px;
+    height: 12px;
+    line-height: 12px;
     text-align: center;
-    font-size: 8.8px;
+    font-size: 8px;
     font-weight: 900;
     color: #fff;
     border-radius: 2px;
-    padding: 0 3px;
+    padding: 0 2.5px;
   }
   .dateline {
-    font-size: 8.6px;
+    font-size: 7.8px;
     font-weight: 900;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
     color: #9b1c1c;
   }
   .story-head {
     font-family: Georgia, "Times New Roman", serif;
-    font-size: 12.6px;
+    font-size: 11.4px;
     font-weight: 900;
-    line-height: 1.1;
+    line-height: 1.09;
     color: #141210;
-    margin-bottom: 2px;
+    margin-bottom: 1.5px;
   }
   .story-body {
-    font-size: 10px;
-    line-height: 1.18;
-    color: #231f1a;
+    font-size: 9px;
+    line-height: 1.14;
+    color: #25211c;
   }
-  .illu-wrap {
+  .illu-wrap { margin-bottom: 3px; }
+
+  /* Bottom Band: 24-Story World in Brief */
+  .brief-band {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .brief-banner {
+    background: #201c18;
+    color: #fde68a;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 9.8px;
+    font-weight: 900;
+    letter-spacing: 0.9px;
+    padding: 2.5px 7px;
     margin-bottom: 4px;
-  }
-  .footer-bar {
-    border-top: 2px solid #141210;
-    padding-top: 3px;
-    margin-top: 3px;
     display: flex;
     justify-content: space-between;
-    font-size: 8.8px;
-    font-weight: 800;
+  }
+  .brief-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 9px;
+    flex: 1;
+    overflow: hidden;
+  }
+  .brief-col {
+    border-right: 1px solid #c2b8a3;
+    padding-right: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .brief-col:last-child { border-right: none; padding-right: 0; }
+  .brief-head {
+    font-size: 8.6px;
+    font-weight: 900;
     letter-spacing: 0.7px;
+    padding: 1.5px 4px;
+    color: #fff;
+    margin-bottom: 2px;
+  }
+  .brief-item {
+    font-size: 8.35px;
+    line-height: 1.14;
+    color: #1f1c18;
+    border-bottom: 1px dotted #d2c8b4;
+    padding: 1.5px 0 2px 0;
+  }
+  .brief-item:last-child { border-bottom: none; }
+  .brief-city { font-weight: 900; letter-spacing: 0.2px; }
+
+  .footer-bar {
+    border-top: 1.8px solid #141210;
+    padding-top: 2px;
+    margin-top: 2px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 8px;
+    font-weight: 800;
+    letter-spacing: 0.6px;
     color: #4b4337;
   }
 </style>
@@ -222,7 +267,7 @@
 <body>
   <div class="page">
     <div class="top-meta">
-      <span>GLOBAL VISUAL EDITION  ·  20 FLAGSHIP DISPATCHES  ·  ALL SIX INHABITED CONTINENTS</span>
+      <span>GLOBAL VISUAL EDITION  ·  14 LEAD DISPATCHES + 24 WORLD BRIEFS  ·  SIX CONTINENTS</span>
       <span>VOL. MMXXVI · NO. 329 · 25 NOV 2026</span>
     </div>
     <header class="masthead-row">
@@ -239,90 +284,86 @@
         <div>
           <div class="sec-bar" style="background:#141210">GLOBAL LOCATOR · SIX CONTINENTS · 25 NOV 2026</div>
           <div class="map-box">
-  <svg viewBox="0 0 488 204" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="display:block;background:#edf3f6;border:1.5px solid #8f846f;">
-    <line x1="27.9" y1="0" x2="27.9" y2="204" stroke="#d5ccb4" stroke-width="0.7" stroke-dasharray="2,2"/><line x1="69.7" y1="0" x2="69.7" y2="204" stroke="#d5ccb4" stroke-width="0.7" stroke-dasharray="2,2"/><line x1="111.5" y1="0" x2="111.5" y2="204" stroke="#d5ccb4" stroke-width="0.7" stroke-dasharray="2,2"/><line x1="153.4" y1="0" x2="153.4" y2="204" stroke="#d5ccb4" stroke-width="0.7" stroke-dasharray="2,2"/><line x1="195.2" y1="0" x2="195.2" y2="204" stroke="#d5ccb4" stroke-width="0.7" stroke-dasharray="2,2"/><line x1="237.0" y1="0" x2="237.0" y2="204" stroke="#d5ccb4" stroke-width="0.7" stroke-dasharray="2,2"/><line x1="278.9" y1="0" x2="278.9" y2="204" stroke="#d5ccb4" stroke-width="0.7" stroke-dasharray="2,2"/><line x1="320.7" y1="0" x2="320.7" y2="204" stroke="#d5ccb4" stroke-width="0.7" stroke-dasharray="2,2"/><line x1="362.5" y1="0" x2="362.5" y2="204" stroke="#d5ccb4" stroke-width="0.7" stroke-dasharray="2,2"/><line x1="404.3" y1="0" x2="404.3" y2="204" stroke="#d5ccb4" stroke-width="0.7" stroke-dasharray="2,2"/><line x1="446.2" y1="0" x2="446.2" y2="204" stroke="#d5ccb4" stroke-width="0.7" stroke-dasharray="2,2"/><line x1="0" y1="161.4" x2="488" y2="161.4" stroke="#d5ccb4" stroke-width="0.7" stroke-dasharray="2,2"/><line x1="0" y1="115.7" x2="488" y2="115.7" stroke="#c1b497" stroke-width="1" stroke-dasharray="none"/><line x1="0" y1="70.0" x2="488" y2="70.0" stroke="#d5ccb4" stroke-width="0.7" stroke-dasharray="2,2"/><line x1="0" y1="24.4" x2="488" y2="24.4" stroke="#d5ccb4" stroke-width="0.7" stroke-dasharray="2,2"/>
-    <path d="M 5.6,16.7 L 11.2,7.6 L 48.8,9.1 L 80.9,4.6 L 111.5,7.6 L 128.3,19.8 L 147.8,24.4 L 163.1,42.6 L 145.0,48.7 L 132.5,62.4 L 124.1,77.6 L 121.3,70.0 L 111.5,71.6 L 101.8,76.1 L 103.2,86.8 L 114.3,83.7 L 119.9,99.0 L 128.3,103.5 L 122.7,102.0 L 108.8,94.4 L 90.6,85.3 L 80.9,73.1 L 73.9,67.0 L 64.1,51.8 L 62.7,41.1 L 47.4,27.4 L 25.1,24.4 L 5.6,16.7 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 160.3,22.8 L 175.7,24.4 L 209.1,9.1 L 211.9,-7.6 L 164.5,-9.1 L 142.2,0.0 L 160.3,22.8 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 119.9,82.2 L 132.5,85.3 L 133.9,83.7 L 119.9,80.7 L 119.9,82.2 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 128.3,102.0 L 136.6,97.4 L 150.6,100.5 L 167.3,114.2 L 188.2,124.8 L 184.0,137.0 L 179.9,149.2 L 164.5,165.9 L 147.8,178.1 L 142.2,197.9 L 133.9,194.9 L 135.2,176.6 L 138.0,158.3 L 139.4,143.1 L 128.3,134.0 L 124.1,123.3 L 128.3,109.6 L 128.3,102.0 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 228.7,39.6 L 238.4,38.1 L 238.4,33.5 L 234.2,27.4 L 228.7,27.4 L 228.7,39.6 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 223.1,36.5 L 228.7,36.5 L 228.7,32.0 L 223.1,33.5 L 223.1,36.5 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 224.5,59.4 L 224.5,50.2 L 234.2,50.2 L 231.5,42.6 L 239.8,38.1 L 248.2,33.5 L 248.2,27.4 L 244.0,22.8 L 256.5,12.2 L 276.1,7.6 L 281.6,10.7 L 276.1,24.4 L 267.7,24.4 L 262.1,25.9 L 255.2,32.0 L 264.9,32.0 L 270.5,28.9 L 276.1,24.4 L 284.4,24.4 L 298.4,27.4 L 304.0,45.7 L 291.4,44.1 L 284.4,47.2 L 277.5,53.3 L 273.3,54.8 L 269.1,59.4 L 263.5,54.8 L 257.9,57.9 L 253.8,51.8 L 249.6,48.7 L 242.6,50.2 L 237.0,56.3 L 230.1,60.9 L 224.5,59.4 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 228.7,62.4 L 251.0,59.4 L 253.8,65.5 L 270.5,67.0 L 283.0,68.5 L 291.4,83.7 L 297.0,97.4 L 308.1,97.4 L 305.3,109.6 L 294.2,118.7 L 292.8,132.4 L 285.8,152.2 L 276.1,165.9 L 262.1,169.0 L 256.5,150.7 L 253.8,134.0 L 249.6,109.6 L 239.8,106.6 L 225.9,108.1 L 213.3,92.9 L 214.7,80.7 L 223.1,70.0 L 228.7,62.4 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 298.4,153.8 L 302.6,153.8 L 306.7,138.5 L 305.3,134.0 L 298.4,143.1 L 298.4,153.8 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 276.1,53.3 L 287.2,59.4 L 285.8,68.5 L 297.0,95.9 L 312.3,89.8 L 320.7,82.2 L 315.1,76.1 L 306.7,70.0 L 299.8,57.9 L 310.9,54.8 L 313.7,45.7 L 323.5,32.0 L 337.4,6.1 L 382.0,0.0 L 432.2,6.1 L 476.8,15.2 L 462.9,32.0 L 435.0,33.5 L 425.3,48.7 L 416.9,62.4 L 412.7,57.9 L 407.1,54.8 L 401.6,56.3 L 407.1,68.5 L 396.0,82.2 L 387.6,85.3 L 389.0,97.4 L 380.6,112.7 L 376.5,106.6 L 373.7,91.3 L 363.9,82.2 L 355.5,86.8 L 348.6,100.5 L 344.4,103.5 L 337.4,85.3 L 330.4,77.6 L 320.7,77.6 L 315.1,76.1 L 305.3,71.6 L 304.0,70.0 L 292.8,51.8 L 276.1,53.3 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 418.3,67.0 L 423.9,63.9 L 432.2,60.9 L 433.6,53.3 L 439.2,48.7 L 433.6,47.2 L 430.8,57.9 L 425.3,62.4 L 418.3,67.0 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 370.9,108.1 L 383.4,124.8 L 396.0,127.9 L 383.4,126.4 L 370.9,108.1 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 389.0,114.2 L 401.6,108.1 L 401.6,120.3 L 390.4,120.3 L 389.0,114.2 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 421.1,118.7 L 433.6,120.3 L 444.8,129.4 L 436.4,129.4 L 421.1,118.7 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 396.0,149.2 L 407.1,141.6 L 419.7,134.0 L 426.7,134.0 L 426.7,138.5 L 433.6,141.6 L 436.4,132.4 L 444.8,146.1 L 450.4,158.3 L 446.2,172.0 L 433.6,173.6 L 426.7,169.0 L 416.9,164.4 L 407.1,167.5 L 397.4,167.5 L 394.6,155.3 L 396.0,149.2 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/><path d="M 478.2,169.0 L 485.2,173.6 L 481.0,178.1 L 469.9,185.7 L 476.8,181.2 L 481.0,176.6 L 478.2,169.0 Z" fill="#e4d9be" stroke="#706451" stroke-width="1.1" stroke-linejoin="round"/>
-    <circle cx="314.4" cy="75.8" r="14" fill="none" stroke="#9b1c1c" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.85"/><circle cx="279.6" cy="39.0" r="12" fill="none" stroke="#9b1c1c" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.85"/><circle cx="376.9" cy="53.4" r="12" fill="none" stroke="#9b1c1c" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.85"/>
-    <text x="172" y="76" font-family="Georgia, serif" font-size="9" font-style="italic" fill="#6b8391" letter-spacing="1.8">ATLANTIC</text>
-    <text x="30" y="130" font-family="Georgia, serif" font-size="9" font-style="italic" fill="#6b8391" letter-spacing="1.8">PACIFIC</text>
-    <text x="330" y="150" font-family="Georgia, serif" font-size="9" font-style="italic" fill="#6b8391" letter-spacing="1.8">INDIAN</text>
+  <svg viewBox="0 0 474 168" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="display:block;background:#ecf3f6;border:1.5px solid #8f846f;">
+    <line x1="27.1" y1="0" x2="27.1" y2="168" stroke="#d5ccb4" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="67.7" y1="0" x2="67.7" y2="168" stroke="#d5ccb4" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="108.3" y1="0" x2="108.3" y2="168" stroke="#d5ccb4" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="149.0" y1="0" x2="149.0" y2="168" stroke="#d5ccb4" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="189.6" y1="0" x2="189.6" y2="168" stroke="#d5ccb4" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="230.2" y1="0" x2="230.2" y2="168" stroke="#d5ccb4" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="270.9" y1="0" x2="270.9" y2="168" stroke="#d5ccb4" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="311.5" y1="0" x2="311.5" y2="168" stroke="#d5ccb4" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="352.1" y1="0" x2="352.1" y2="168" stroke="#d5ccb4" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="392.7" y1="0" x2="392.7" y2="168" stroke="#d5ccb4" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="433.4" y1="0" x2="433.4" y2="168" stroke="#d5ccb4" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="0" y1="132.9" x2="474" y2="132.9" stroke="#d5ccb4" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="0" y1="95.3" x2="474" y2="95.3" stroke="#c1b497" stroke-width="0.9" stroke-dasharray="none"/><line x1="0" y1="57.7" x2="474" y2="57.7" stroke="#d5ccb4" stroke-width="0.6" stroke-dasharray="2,2"/><line x1="0" y1="20.1" x2="474" y2="20.1" stroke="#d5ccb4" stroke-width="0.6" stroke-dasharray="2,2"/>
+    <path d="M 5.4,13.8 L 10.8,6.3 L 47.4,7.5 L 78.5,3.8 L 108.3,6.3 L 124.6,16.3 L 143.6,20.1 L 158.5,35.1 L 140.8,40.1 L 128.7,51.4 L 120.5,63.9 L 117.8,57.7 L 108.3,58.9 L 98.9,62.7 L 100.2,71.5 L 111.1,69.0 L 116.5,81.5 L 124.6,85.3 L 119.2,84.0 L 105.6,77.7 L 88.0,70.2 L 78.5,60.2 L 71.8,55.2 L 62.3,42.6 L 60.9,33.9 L 46.0,22.6 L 24.4,20.1 L 5.4,13.8 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 155.7,18.8 L 170.6,20.1 L 203.1,7.5 L 205.9,-6.3 L 159.8,-7.5 L 138.1,0.0 L 155.7,18.8 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 116.5,67.7 L 128.7,70.2 L 130.0,69.0 L 116.5,66.4 L 116.5,67.7 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 124.6,84.0 L 132.7,80.2 L 146.3,82.7 L 162.5,94.0 L 182.8,102.8 L 178.8,112.8 L 174.7,122.9 L 159.8,136.7 L 143.6,146.7 L 138.1,163.0 L 130.0,160.5 L 131.4,145.4 L 134.1,130.4 L 135.4,117.9 L 124.6,110.3 L 120.5,101.6 L 124.6,90.3 L 124.6,84.0 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 222.1,32.6 L 231.6,31.3 L 231.6,27.6 L 227.5,22.6 L 222.1,22.6 L 222.1,32.6 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 216.7,30.1 L 222.1,30.1 L 222.1,26.3 L 216.7,27.6 L 216.7,30.1 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 218.0,48.9 L 218.0,41.4 L 227.5,41.4 L 224.8,35.1 L 232.9,31.3 L 241.1,27.6 L 241.1,22.6 L 237.0,18.8 L 249.2,10.0 L 268.1,6.3 L 273.6,8.8 L 268.1,20.1 L 260.0,20.1 L 254.6,21.3 L 247.8,26.3 L 257.3,26.3 L 262.7,23.8 L 268.1,20.1 L 276.3,20.1 L 289.8,22.6 L 295.2,37.6 L 283.0,36.4 L 276.3,38.9 L 269.5,43.9 L 265.4,45.1 L 261.4,48.9 L 256.0,45.1 L 250.5,47.6 L 246.5,42.6 L 242.4,40.1 L 235.6,41.4 L 230.2,46.4 L 223.5,50.1 L 218.0,48.9 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 222.1,51.4 L 243.8,48.9 L 246.5,53.9 L 262.7,55.2 L 274.9,56.4 L 283.0,69.0 L 288.5,80.2 L 299.3,80.2 L 296.6,90.3 L 285.8,97.8 L 284.4,109.1 L 277.6,125.4 L 268.1,136.7 L 254.6,139.2 L 249.2,124.1 L 246.5,110.3 L 242.4,90.3 L 232.9,87.8 L 219.4,89.0 L 207.2,76.5 L 208.6,66.4 L 216.7,57.7 L 222.1,51.4 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 289.8,126.6 L 293.9,126.6 L 297.9,114.1 L 296.6,110.3 L 289.8,117.9 L 289.8,126.6 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 268.1,43.9 L 279.0,48.9 L 277.6,56.4 L 288.5,79.0 L 303.4,74.0 L 311.5,67.7 L 306.1,62.7 L 297.9,57.7 L 291.2,47.6 L 302.0,45.1 L 304.7,37.6 L 314.2,26.3 L 327.7,5.0 L 371.1,0.0 L 419.8,5.0 L 463.2,12.5 L 449.6,26.3 L 422.5,27.6 L 413.1,40.1 L 404.9,51.4 L 400.9,47.6 L 395.5,45.1 L 390.0,46.4 L 395.5,56.4 L 384.6,67.7 L 376.5,70.2 L 377.8,80.2 L 369.7,92.8 L 365.7,87.8 L 362.9,75.2 L 353.5,67.7 L 345.3,71.5 L 338.6,82.7 L 334.5,85.3 L 327.7,70.2 L 321.0,63.9 L 311.5,63.9 L 306.1,62.7 L 296.6,58.9 L 295.2,57.7 L 284.4,42.6 L 268.1,43.9 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 406.3,55.2 L 411.7,52.7 L 419.8,50.1 L 421.2,43.9 L 426.6,40.1 L 421.2,38.9 L 418.5,47.6 L 413.1,51.4 L 406.3,55.2 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 360.2,89.0 L 372.4,102.8 L 384.6,105.3 L 372.4,104.1 L 360.2,89.0 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 377.8,94.0 L 390.0,89.0 L 390.0,99.0 L 379.2,99.0 L 377.8,94.0 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 409.0,97.8 L 421.2,99.0 L 432.0,106.6 L 423.9,106.6 L 409.0,97.8 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 384.6,122.9 L 395.5,116.6 L 407.6,110.3 L 414.4,110.3 L 414.4,114.1 L 421.2,116.6 L 423.9,109.1 L 432.0,120.4 L 437.4,130.4 L 433.4,141.7 L 421.2,142.9 L 414.4,139.2 L 404.9,135.4 L 395.5,137.9 L 386.0,137.9 L 383.3,127.9 L 384.6,122.9 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/><path d="M 464.5,139.2 L 471.3,142.9 L 467.2,146.7 L 456.4,153.0 L 463.2,149.2 L 467.2,145.4 L 464.5,139.2 Z" fill="#e3d7bc" stroke="#6f634f" stroke-width="1" stroke-linejoin="round"/>
+    <circle cx="305.4" cy="62.4" r="12" fill="none" stroke="#9b1c1c" stroke-width="1.3" stroke-dasharray="2.5,2" opacity="0.85"/><circle cx="271.5" cy="32.1" r="11" fill="none" stroke="#9b1c1c" stroke-width="1.3" stroke-dasharray="2.5,2" opacity="0.85"/><circle cx="366.1" cy="44.0" r="11" fill="none" stroke="#9b1c1c" stroke-width="1.3" stroke-dasharray="2.5,2" opacity="0.85"/>
+    <text x="166" y="64" font-family="Georgia, serif" font-size="8" font-style="italic" fill="#6b8391" letter-spacing="1.6">ATLANTIC</text>
+    <text x="26" y="108" font-family="Georgia, serif" font-size="8" font-style="italic" fill="#6b8391" letter-spacing="1.6">PACIFIC</text>
+    <text x="320" y="126" font-family="Georgia, serif" font-size="8" font-style="italic" fill="#6b8391" letter-spacing="1.6">INDIAN</text>
     
       <g>
-        <circle cx="376.9" cy="51.4" r="7.8" fill="#9b1c1c" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="376.9" y="54.5" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">1</text>
+        <circle cx="366.1" cy="42.0" r="6.8" fill="#9b1c1c" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="366.1" y="44.6" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">1</text>
       </g>
       <g>
-        <circle cx="402.3" cy="57.0" r="7.8" fill="#9b1c1c" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="402.3" y="60.1" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">2</text>
+        <circle cx="389.9" cy="47.3" r="6.8" fill="#9b1c1c" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="389.9" y="49.9" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">2</text>
       </g>
       <g>
-        <circle cx="444.9" cy="169.4" r="7.8" fill="#1e5b3f" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="444.9" y="172.5" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">3</text>
+        <circle cx="432.2" cy="139.5" r="6.8" fill="#1e5b3f" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="432.2" y="142.1" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">3</text>
       </g>
       <g>
-        <circle cx="416.1" cy="63.5" r="7.8" fill="#16324f" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="416.1" y="66.6" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">4</text>
+        <circle cx="404.2" cy="52.1" r="6.8" fill="#16324f" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="404.2" y="54.7" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">4</text>
       </g>
       <g>
-        <circle cx="66.9" cy="58.8" r="7.8" fill="#16324f" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="66.9" y="61.9" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">5</text>
+        <circle cx="65.0" cy="48.4" r="6.8" fill="#16324f" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="65.0" y="51.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">5</text>
       </g>
       <g>
-        <circle cx="123.7" cy="60.5" r="7.8" fill="#16324f" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="123.7" y="63.6" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">6</text>
+        <circle cx="119.9" cy="49.5" r="6.8" fill="#16324f" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="119.9" y="52.1" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">6</text>
       </g>
       <g>
-        <circle cx="141.9" cy="53.7" r="7.8" fill="#16324f" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="141.9" y="56.8" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">8</text>
+        <circle cx="138.0" cy="43.3" r="6.8" fill="#16324f" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="138.0" y="45.9" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">8</text>
       </g>
       <g>
-        <circle cx="129.5" cy="38.6" r="7.8" fill="#16324f" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="129.5" y="41.7" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">9</text>
+        <circle cx="275.5" cy="28.1" r="6.8" fill="#9b1c1c" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="275.5" y="30.7" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">9</text>
       </g>
       <g>
-        <circle cx="131.8" cy="99.9" r="7.8" fill="#9b1c1c" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="131.8" y="103.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">10</text>
+        <circle cx="234.1" cy="25.6" r="6.8" fill="#9b1c1c" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="234.1" y="28.2" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">10</text>
       </g>
       <g>
-        <circle cx="287.6" cy="37.0" r="7.8" fill="#9b1c1c" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="287.6" y="40.1" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">11</text>
+        <circle cx="311.4" cy="62.4" r="6.8" fill="#9b1c1c" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="311.4" y="65.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">11</text>
       </g>
       <g>
-        <circle cx="227.9" cy="34.3" r="7.8" fill="#9b1c1c" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="227.9" y="37.4" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">12</text>
+        <circle cx="270.7" cy="93.0" r="6.8" fill="#9b1c1c" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="270.7" y="95.6" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">12</text>
       </g>
       <g>
-        <circle cx="270.3" cy="26.2" r="7.8" fill="#9b1c1c" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="270.3" y="29.3" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">13</text>
+        <circle cx="206.7" cy="76.9" r="6.8" fill="#1e5b3f" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="206.7" y="79.5" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">13</text>
       </g>
       <g>
-        <circle cx="321.4" cy="75.8" r="7.8" fill="#9b1c1c" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="321.4" y="78.9" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">14</text>
+        <circle cx="229.3" cy="40.1" r="6.8" fill="#1e5b3f" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="229.3" y="42.7" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">14</text>
       </g>
       <g>
-        <circle cx="274.5" cy="73.0" r="7.8" fill="#b4690e" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="274.5" y="76.1" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">15</text>
+        <circle cx="128.0" cy="82.2" r="6.8" fill="#b4690e" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="128.0" y="84.8" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">A</text>
       </g>
       <g>
-        <circle cx="278.7" cy="113.0" r="7.8" fill="#9b1c1c" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="278.7" y="116.1" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">16</text>
+        <circle cx="165.4" cy="115.1" r="6.8" fill="#b4690e" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="165.4" y="117.7" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">B</text>
       </g>
       <g>
-        <circle cx="212.8" cy="93.3" r="7.8" fill="#1e5b3f" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="212.8" y="96.4" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">17</text>
+        <circle cx="427.4" cy="48.5" r="6.8" fill="#16324f" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="427.4" y="51.1" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">C</text>
       </g>
       <g>
-        <circle cx="439.8" cy="59.4" r="7.8" fill="#1e5b3f" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="439.8" y="62.5" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">18</text>
+        <circle cx="267.5" cy="60.7" r="6.8" fill="#b4690e" stroke="#faf5e8" stroke-width="1.1"/>
+        <text x="267.5" y="63.3" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="8.1" font-weight="900" fill="#ffffff">D</text>
       </g>
-      <g>
-        <circle cx="237.2" cy="50.4" r="7.8" fill="#1e5b3f" stroke="#faf5e8" stroke-width="1.2"/>
-        <text x="237.2" y="53.5" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="9.2" font-weight="900" fill="#ffffff">20</text>
-      </g>
-    <rect x="6" y="179" width="230" height="20" rx="2.5" fill="#faf5e8" fill-opacity="0.95" stroke="#8f846f" stroke-width="0.9"/>
-    <circle cx="17" cy="189" r="4.5" fill="#9b1c1c"/><text x="25" y="192.5" font-family="Segoe UI, Arial" font-size="8.6" font-weight="800" fill="#141210">CRISIS</text>
-    <circle cx="77" cy="189" r="4.5" fill="#16324f"/><text x="85" y="192.5" font-family="Segoe UI, Arial" font-size="8.6" font-weight="800" fill="#141210">MARKETS/POL</text>
-    <circle cx="164" cy="189" r="4.5" fill="#1e5b3f"/><text x="172" y="192.5" font-family="Segoe UI, Arial" font-size="8.6" font-weight="800" fill="#141210">SCI/SPORT</text>
+    <rect x="5" y="146" width="212" height="17" rx="2" fill="#faf5e8" fill-opacity="0.95" stroke="#8f846f" stroke-width="0.8"/>
+    <circle cx="15" cy="154.5" r="3.8" fill="#9b1c1c"/><text x="22" y="157.5" font-family="Segoe UI, Arial" font-size="7.6" font-weight="800" fill="#141210">CRISIS</text>
+    <circle cx="68" cy="154.5" r="3.8" fill="#16324f"/><text x="75" y="157.5" font-family="Segoe UI, Arial" font-size="7.6" font-weight="800" fill="#141210">MARKETS/POL</text>
+    <circle cx="148" cy="154.5" r="3.8" fill="#1e5b3f"/><text x="155" y="157.5" font-family="Segoe UI, Arial" font-size="7.6" font-weight="800" fill="#141210">SCI/SPORT</text>
   </svg></div>
         </div>
         <div class="hero-banner">
@@ -331,44 +372,52 @@
             <span class="dateline">JIUQUAN, 25 NOV</span>
           </div>
           <h2 class="hero-head">Shenzhou-24 Orbits First Foreign Astronaut to Tiangong</h2>
-          <p class="hero-body">Long March-2F launched three astronauts including Pakistan’s Muhammad Zeeshan Ali — first international crewmate on China’s space station.</p>
+          <p class="hero-body">Long March-2F launched three astronauts including Pakistan’s Muhammad Zeeshan Ali — first international crewmate aboard China’s station.</p>
         </div>
       </div>
 
       <div class="col-box">
         <div class="sec-bar" style="background:#9b1c1c">ASIA-PACIFIC</div>
         <div class="illu-wrap">
-  <svg viewBox="0 0 246 106" width="100%" height="106" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:linear-gradient(135deg,#0c1c30,#16324f);">
+  <svg viewBox="0 0 254 88" width="100%" height="88" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:linear-gradient(140deg,#091628,#16324f);">
     <defs>
-      <linearGradient id="plumeBig" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%" stop-color="#facc15"/><stop offset="50%" stop-color="#f97316"/><stop offset="100%" stop-color="#ef4444" stop-opacity="0"/>
+      <linearGradient id="plumeR" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0%" stop-color="#fef08a"/><stop offset="45%" stop-color="#f97316"/><stop offset="100%" stop-color="#dc2626" stop-opacity="0"/>
       </linearGradient>
+      <radialGradient id="earthGlow" cx="50%" cy="100%" r="80%">
+        <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.55"/><stop offset="100%" stop-color="#0f172a" stop-opacity="0"/>
+      </radialGradient>
     </defs>
-    <circle cx="24" cy="16" r="1.4" fill="#fff"/><circle cx="62" cy="28" r="1.1" fill="#fde68a"/><circle cx="110" cy="12" r="1.3" fill="#fff"/>
-    <circle cx="160" cy="22" r="1" fill="#fff"/><circle cx="222" cy="14" r="1.4" fill="#fde68a"/><circle cx="204" cy="68" r="1.1" fill="#fff"/>
-    <!-- Earth horizon -->
-    <path d="M 0 96 Q 123 70 246 92 L 246 106 L 0 106 Z" fill="#1d4ed8" fill-opacity="0.35" stroke="#60a5fa" stroke-width="1.2"/>
-    <!-- Orbital arc -->
-    <path d="M 16 74 Q 120 18 228 32" fill="none" stroke="#93c5fd" stroke-width="1.3" stroke-dasharray="4,3"/>
-    <!-- Tiangong -->
-    <g transform="translate(194,28) rotate(-8)">
-      <rect x="-18" y="-5" width="36" height="10" rx="2" fill="#f1f5f9" stroke="#0f172a" stroke-width="1"/>
-      <rect x="-30" y="-14" width="18" height="6" fill="#3b82f6" stroke="#bfdbfe" stroke-width="0.8"/>
-      <rect x="-30" y="8" width="18" height="6" fill="#3b82f6" stroke="#bfdbfe" stroke-width="0.8"/>
-      <rect x="12" y="-14" width="18" height="6" fill="#3b82f6" stroke="#bfdbfe" stroke-width="0.8"/>
-      <rect x="12" y="8" width="18" height="6" fill="#3b82f6" stroke="#bfdbfe" stroke-width="0.8"/>
+    <circle cx="18" cy="14" r="1.2" fill="#fff"/><circle cx="54" cy="22" r="0.9" fill="#fde68a"/><circle cx="96" cy="11" r="1.1" fill="#fff"/><circle cx="152" cy="16" r="0.9" fill="#fff"/><circle cx="236" cy="14" r="1.2" fill="#fde68a"/>
+    <path d="M 0 78 Q 127 52 254 74 L 254 88 L 0 88 Z" fill="url(#earthGlow)"/>
+    <path d="M 0 80 Q 127 56 254 76" fill="none" stroke="#60a5fa" stroke-width="1.3"/>
+    <path d="M 14 62 Q 124 16 232 28" fill="none" stroke="#93c5fd" stroke-width="1" stroke-dasharray="3,2.5"/>
+    <!-- Tiangong orbital station -->
+    <g transform="translate(202,25) rotate(-8)">
+      <rect x="-18" y="-4.5" width="36" height="9" rx="2" fill="#f1f5f9" stroke="#0f172a" stroke-width="0.9"/>
+      <rect x="-6" y="-8" width="12" height="3.5" fill="#cbd5e1"/>
+      <rect x="-29" y="-12" width="17" height="5" fill="#2563eb" stroke="#bfdbfe" stroke-width="0.7"/>
+      <rect x="-29" y="7" width="17" height="5" fill="#2563eb" stroke="#bfdbfe" stroke-width="0.7"/>
+      <rect x="12" y="-12" width="17" height="5" fill="#2563eb" stroke="#bfdbfe" stroke-width="0.7"/>
+      <rect x="12" y="7" width="17" height="5" fill="#2563eb" stroke="#bfdbfe" stroke-width="0.7"/>
     </g>
-    <!-- Rocket & Plume -->
-    <polygon points="22,60 88,42 88,54" fill="url(#plumeBig)"/>
-    <g transform="translate(114,44) rotate(14)">
-      <rect x="-34" y="-5.5" width="54" height="11" fill="#f8fafc" stroke="#1e293b" stroke-width="1.2"/>
-      <polygon points="20,-5.5 34,0 20,5.5" fill="#dc2626"/>
-      <rect x="-30" y="-9.5" width="20" height="4" fill="#cbd5e1" stroke="#1e293b" stroke-width="0.8"/>
-      <rect x="-30" y="5.5" width="20" height="4" fill="#cbd5e1" stroke="#1e293b" stroke-width="0.8"/>
-      <rect x="4" y="-5.5" width="5" height="11" fill="#dc2626"/>
+    <!-- Exhaust plume & Long March-2F -->
+    <polygon points="18,51 82,35 82,45" fill="url(#plumeR)"/>
+    <g transform="translate(108,38) rotate(13)">
+      <rect x="-30" y="-5" width="48" height="10" fill="#f8fafc" stroke="#1e293b" stroke-width="1.1"/>
+      <polygon points="18,-5 31,0 18,5" fill="#dc2626"/>
+      <rect x="-26" y="-8.5" width="18" height="3.5" fill="#cbd5e1" stroke="#1e293b" stroke-width="0.7"/>
+      <rect x="-26" y="5" width="18" height="3.5" fill="#cbd5e1" stroke="#1e293b" stroke-width="0.7"/>
+      <rect x="3" y="-5" width="4.5" height="10" fill="#dc2626"/>
     </g>
-    <rect x="6" y="81" width="206" height="19" rx="2" fill="#0b1726" fill-opacity="0.92" stroke="#f59e0b" stroke-width="1"/>
-    <text x="14" y="94" font-family="Segoe UI, Arial, sans-serif" font-size="10.2" font-weight="900" fill="#fde68a">SHENZHOU-24 · CN + PK CREW</text>
+    <!-- CN + PK Badges -->
+    <rect x="6" y="66" width="18" height="12" fill="#dc2626" stroke="#fff" stroke-width="0.6"/>
+    <circle cx="11" cy="70" r="1.8" fill="#fde047"/>
+    <rect x="27" y="66" width="18" height="12" fill="#15803d" stroke="#fff" stroke-width="0.6"/>
+    <rect x="27" y="66" width="4.5" height="12" fill="#fff"/>
+    <circle cx="38" cy="72" r="2.5" fill="#fff"/>
+    <rect x="50" y="65" width="196" height="16" rx="2" fill="#0b1726" fill-opacity="0.92" stroke="#f59e0b" stroke-width="0.9"/>
+    <text x="148" y="76" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.6" font-weight="900" fill="#fde68a">SHENZHOU-24 · CN + PK CREW</text>
   </svg></div>
         
     <article class="story">
@@ -377,7 +426,7 @@
         <span class="dateline">BEIJING / SHANGHAI, 25 NOV</span>
       </div>
       <h3 class="story-head">Shanghai Party Chief Chen Jining Probed</h3>
-      <p class="story-body">CCDI placed Politburo member Chen under discipline inquiry; US–China farm group met.</p>
+      <p class="story-body">CCDI placed Politburo member Chen under inquiry — fourth top purge since 2025.</p>
     </article>
     <article class="story">
       <div class="story-meta">
@@ -385,33 +434,37 @@
         <span class="dateline">CANBERRA / WELLINGTON, 25 NOV</span>
       </div>
       <h3 class="story-head">Solomons Security Pact &amp; 300+ Wild Kiwi</h3>
-      <p class="story-body">Australia–Solomons treaty bars foreign bases; NZ wild kiwi pass 300 in Wellington.</p>
+      <p class="story-body">Australia–Solomons treaty bars foreign bases; NZ wild kiwi top 300 in capital.</p>
     </article>
       </div>
 
       <div class="col-box">
         <div class="sec-bar" style="background:#16324f">MARKETS &amp; AI</div>
         <div class="illu-wrap">
-  <svg viewBox="0 0 246 106" width="100%" height="106" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:#f4efe0;">
-    <line x1="10" y1="24" x2="162" y2="24" stroke="#d5ccb4" stroke-width="0.9"/>
-    <line x1="10" y1="48" x2="162" y2="48" stroke="#d5ccb4" stroke-width="0.9"/>
-    <line x1="10" y1="72" x2="162" y2="72" stroke="#d5ccb4" stroke-width="0.9"/>
-    <!-- Peak 5,006 then drop 4,697 -->
-    <polygon points="12,56 38,44 64,28 84,22 104,44 128,58 156,76 156,82 12,82" fill="#9b1c1c" fill-opacity="0.16"/>
-    <polyline points="12,56 38,44 64,28 84,22" fill="none" stroke="#1e5b3f" stroke-width="2.8" stroke-linejoin="round"/>
-    <polyline points="84,22 104,44 128,58 156,76" fill="none" stroke="#9b1c1c" stroke-width="2.8" stroke-linejoin="round"/>
-    <circle cx="84" cy="22" r="4" fill="#1e5b3f"/><circle cx="156" cy="76" r="4" fill="#9b1c1c"/>
-    <text x="84" y="15" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9.5" font-weight="900" fill="#1e5b3f">5,006 PEAK</text>
-    <text x="128" y="88" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9.5" font-weight="900" fill="#9b1c1c">4,697 (-6.2%)</text>
-    <text x="10" y="99" font-family="Segoe UI, Arial" font-size="8.6" font-weight="800" fill="#16324f">BTC $59.2K · NASDAQ -1.5%</text>
-    <!-- AI GPU Die -->
-    <g transform="translate(204,50)">
-      <rect x="-32" y="-30" width="64" height="60" rx="5" fill="#16324f" stroke="#141210" stroke-width="1.4"/>
-      <rect x="-24" y="-19" width="48" height="38" rx="3" fill="#b4690e" stroke="#faf5e8" stroke-width="1.1"/>
-      <text x="0" y="-3" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9.5" font-weight="900" fill="#fff">NVDA</text>
-      <text x="0" y="9" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7.8" font-weight="900" fill="#fde68a">+31% SWING</text>
-      <line x1="-38" y1="-15" x2="-32" y2="-15" stroke="#141210" stroke-width="2.2"/><line x1="-38" y1="0" x2="-32" y2="0" stroke="#141210" stroke-width="2.2"/><line x1="-38" y1="15" x2="-32" y2="15" stroke="#141210" stroke-width="2.2"/>
-      <line x1="32" y1="-15" x2="38" y2="-15" stroke="#141210" stroke-width="2.2"/><line x1="32" y1="0" x2="38" y2="0" stroke="#141210" stroke-width="2.2"/><line x1="32" y1="15" x2="38" y2="15" stroke="#141210" stroke-width="2.2"/>
+  <svg viewBox="0 0 254 88" width="100%" height="88" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:#f4efe0;">
+    <line x1="8" y1="20" x2="168" y2="20" stroke="#d5ccb4" stroke-width="0.8"/>
+    <line x1="8" y1="40" x2="168" y2="40" stroke="#d5ccb4" stroke-width="0.8"/>
+    <line x1="8" y1="60" x2="168" y2="60" stroke="#d5ccb4" stroke-width="0.8"/>
+    <!-- Candlesticks -->
+    <line x1="22" y1="42" x2="22" y2="58" stroke="#1e5b3f" stroke-width="1.2"/><rect x="18" y="45" width="8" height="9" fill="#1e5b3f"/>
+    <line x1="42" y1="31" x2="42" y2="49" stroke="#1e5b3f" stroke-width="1.2"/><rect x="38" y="34" width="8" height="11" fill="#1e5b3f"/>
+    <line x1="64" y1="18" x2="64" y2="38" stroke="#1e5b3f" stroke-width="1.2"/><rect x="60" y="21" width="8" height="13" fill="#1e5b3f"/>
+    <line x1="88" y1="14" x2="88" y2="30" stroke="#1e5b3f" stroke-width="1.2"/><rect x="84" y="17" width="8" height="8" fill="#1e5b3f"/>
+    <line x1="112" y1="24" x2="112" y2="48" stroke="#9b1c1c" stroke-width="1.2"/><rect x="108" y="27" width="8" height="16" fill="#9b1c1c"/>
+    <line x1="136" y1="38" x2="136" y2="62" stroke="#9b1c1c" stroke-width="1.2"/><rect x="132" y="42" width="8" height="15" fill="#9b1c1c"/>
+    <line x1="158" y1="48" x2="158" y2="68" stroke="#9b1c1c" stroke-width="1.2"/><rect x="154" y="52" width="8" height="12" fill="#9b1c1c"/>
+    <polyline points="22,49 42,39 64,27 88,20 112,35 136,49 158,58" fill="none" stroke="#141210" stroke-width="1.6"/>
+    <text x="88" y="12" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.6" font-weight="900" fill="#1e5b3f">5,006 PEAK</text>
+    <text x="135" y="74" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.6" font-weight="900" fill="#9b1c1c">4,697 (-6.2%)</text>
+    <text x="8" y="84" font-family="Segoe UI, Arial" font-size="7.8" font-weight="800" fill="#16324f">BTC $59.2K · NASDAQ -1.5%</text>
+    <!-- Glowing Nvidia GPU Die -->
+    <g transform="translate(212,42)">
+      <rect x="-31" y="-28" width="62" height="56" rx="4" fill="#16324f" stroke="#141210" stroke-width="1.3"/>
+      <rect x="-24" y="-18" width="48" height="36" rx="2.5" fill="#b4690e" stroke="#fde68a" stroke-width="1"/>
+      <text x="0" y="-3" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="900" fill="#fff">NVDA</text>
+      <text x="0" y="9" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7.6" font-weight="900" fill="#fde68a">+31% SWING</text>
+      <line x1="-36" y1="-14" x2="-31" y2="-14" stroke="#141210" stroke-width="2"/><line x1="-36" y1="0" x2="-31" y2="0" stroke="#141210" stroke-width="2"/><line x1="-36" y1="14" x2="-31" y2="14" stroke="#141210" stroke-width="2"/>
+      <line x1="31" y1="-14" x2="36" y2="-14" stroke="#141210" stroke-width="2"/><line x1="31" y1="0" x2="36" y2="0" stroke="#141210" stroke-width="2"/><line x1="31" y1="14" x2="36" y2="14" stroke="#141210" stroke-width="2"/>
     </g>
   </svg></div>
         
@@ -420,41 +473,47 @@
         <span class="pin" style="background:#16324f">4</span>
         <span class="dateline">SEOUL / NEW YORK, 25 NOV</span>
       </div>
-      <h3 class="story-head">KOSPI Drops 6.2% Below 5,006; BTC &lt;$60K</h3>
-      <p class="story-body">Index slid to 4,697.51 on Samsung/Hynix sell-off; Nasdaq fell 1.5%, BTC ~$59.2K.</p>
+      <h3 class="story-head">KOSPI Drops 6.2% Off 5,006; BTC &lt;$60K</h3>
+      <p class="story-body">Index fell to 4,697.51 on chip sell-off; Nasdaq -1.5%, BTC ~$59.2K, Gold $3,552.</p>
     </article>
     <article class="story">
       <div class="story-meta">
         <span class="pin" style="background:#16324f">5</span>
         <span class="dateline">SANTA CLARA, 25 NOV</span>
       </div>
-      <h3 class="story-head">Nvidia CEO Apologizes; $270M AI Loans Probed</h3>
-      <p class="story-body">Reinstated Huang apologized after +31% stock swing; China AI server collateral probed.</p>
+      <h3 class="story-head">Nvidia CEO Apologizes; $270M Loans Probed</h3>
+      <p class="story-body">Huang apologized after +31% stock swing; China AI server collateral probed.</p>
     </article>
       </div>
     </section>
 
-    <section class="lower-grid">
+    <section class="middle-grid">
       <div class="col-box">
-        <div class="sec-bar" style="background:#16324f">AMERICAS</div>
+        <div class="sec-bar" style="background:#16324f">AMERICAS &amp; CYBER</div>
         <div class="illu-wrap">
-  <svg viewBox="0 0 324 82" width="100%" height="82" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:#f3ede0;">
-    <!-- Capitol -->
-    <rect x="28" y="38" width="84" height="16" fill="#16324f"/>
-    <path d="M 46 38 A 24 24 0 0 1 94 38 Z" fill="#334155"/>
-    <line x1="70" y1="8" x2="70" y2="15" stroke="#141210" stroke-width="2"/>
-    <text x="70" y="72" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9.6" font-weight="900" fill="#16324f">$5B GOLDEN DOME</text>
-    <line x1="152" y1="8" x2="152" y2="74" stroke="#b5aa93" stroke-width="1.4"/>
-    <!-- Cyber Shield (CIA/ODNI OSINT) -->
-    <path d="M 186 12 L 240 12 L 240 36 C 240 50 213 58 213 58 C 213 58 186 50 186 36 Z" fill="#9b1c1c" stroke="#141210" stroke-width="1.3"/>
-    <text x="213" y="31" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="900" fill="#fff">OSINT</text>
-    <text x="213" y="43" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.5" font-weight="800" fill="#fde68a">BREACH</text>
-    <text x="242" y="72" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9.6" font-weight="900" fill="#9b1c1c">CIA · ODNI · NGA</text>
-    <!-- Terminal monitor lines -->
-    <rect x="256" y="14" width="52" height="36" rx="3" fill="#0f172a" stroke="#141210" stroke-width="1.2"/>
-    <line x1="263" y1="24" x2="298" y2="24" stroke="#fca5a5" stroke-width="2"/>
-    <line x1="263" y1="32" x2="290" y2="32" stroke="#fde68a" stroke-width="2"/>
-    <line x1="263" y1="40" x2="300" y2="40" stroke="#93c5fd" stroke-width="2"/>
+  <svg viewBox="0 0 326 78" width="100%" height="78" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:linear-gradient(180deg,#dce5ee,#f3ede0 70%);">
+    <!-- Missile Defense Radar Arc -->
+    <path d="M 14 56 Q 76 6 138 56" fill="none" stroke="#9b1c1c" stroke-width="1.3" stroke-dasharray="4,2.5"/>
+    <path d="M 28 56 Q 76 18 124 56" fill="none" stroke="#16324f" stroke-width="1" stroke-dasharray="2.5,2"/>
+    <polygon points="76,16 72,24 80,24" fill="#9b1c1c"/>
+    <!-- Detailed Capitol Silhouette -->
+    <rect x="26" y="48" width="100" height="12" fill="#16324f"/>
+    <rect x="44" y="38" width="64" height="10" fill="#244261"/>
+    <path d="M 54 38 A 22 22 0 0 1 98 38 Z" fill="#334155"/>
+    <rect x="73" y="11" width="6" height="6" fill="#16324f"/>
+    <line x1="76" y1="6" x2="76" y2="11" stroke="#141210" stroke-width="1.6"/>
+    <text x="76" y="72" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.6" font-weight="900" fill="#16324f">$5B GOLDEN DOME</text>
+    <line x1="160" y1="6" x2="160" y2="72" stroke="#9e927c" stroke-width="1.2"/>
+    <!-- Cyber Terminal + OSINT Breach Shield -->
+    <rect x="174" y="10" width="84" height="48" rx="3" fill="#0f172a" stroke="#1e293b" stroke-width="1.2"/>
+    <rect x="179" y="15" width="74" height="36" fill="#1e293b"/>
+    <line x1="184" y1="23" x2="226" y2="23" stroke="#ef4444" stroke-width="2.2"/>
+    <line x1="184" y1="31" x2="242" y2="31" stroke="#fde047" stroke-width="1.8"/>
+    <line x1="184" y1="39" x2="234" y2="39" stroke="#60a5fa" stroke-width="1.8"/>
+    <path d="M 270 12 L 314 12 L 314 34 C 314 47 292 54 292 54 C 292 54 270 47 270 34 Z" fill="#9b1c1c" stroke="#141210" stroke-width="1.2"/>
+    <text x="292" y="30" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.5" font-weight="900" fill="#fff">OSINT</text>
+    <text x="292" y="41" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7.5" font-weight="800" fill="#fde68a">BREACH</text>
+    <text x="244" y="72" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.6" font-weight="900" fill="#9b1c1c">CIA · ODNI · NGA BREACH</text>
   </svg></div>
         
     <article class="story">
@@ -463,7 +522,7 @@
         <span class="dateline">WASHINGTON, 25 NOV</span>
       </div>
       <h3 class="story-head">White House Seeks $5B Missile Shield Stopgap</h3>
-      <p class="story-body">Asks Congress for March freeze + Golden Dome funds before Dec. 11; Iran war hits $48B.</p>
+      <p class="story-body">Requests March funding freeze + Golden Dome funds ahead of Dec. 11; Iran ops hit $48B.</p>
     </article>
     <article class="story">
       <div class="story-meta">
@@ -471,26 +530,34 @@
         <span class="dateline">WASHINGTON, 25 NOV</span>
       </div>
       <h3 class="story-head">CIA &amp; ODNI Hit by Unclassified OSINT Breach</h3>
-      <p class="story-body">Cyber intrusion hit open-source intel systems at CIA, ODNI &amp; NGA; classified nets safe.</p>
+      <p class="story-body">Cyber intrusion probed open-source intel systems at CIA, ODNI &amp; NGA; secret nets safe.</p>
     </article>
-        <div class="illu-wrap" style="margin-top:4px">
-  <svg viewBox="0 0 324 82" width="100%" height="82" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:#f3ede0;">
-    <!-- Justice Scales -->
-    <line x1="76" y1="10" x2="76" y2="54" stroke="#141210" stroke-width="2.2"/>
-    <line x1="44" y1="18" x2="108" y2="18" stroke="#b4690e" stroke-width="2.2"/>
-    <polygon points="44,18 35,38 53,38" fill="none" stroke="#141210" stroke-width="1.4"/>
-    <polygon points="108,18 99,38 117,38" fill="none" stroke="#141210" stroke-width="1.4"/>
-    <rect x="54" y="52" width="44" height="5" fill="#141210"/>
-    <text x="76" y="72" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9.4" font-weight="900" fill="#9b1c1c">HUAWEI FRAUD VERDICT</text>
-    <line x1="158" y1="8" x2="158" y2="74" stroke="#b5aa93" stroke-width="1.4"/>
-    <!-- Cartagena Rescue Chopper -->
-    <g transform="translate(240,26)">
-      <ellipse cx="0" cy="0" rx="24" ry="9.5" fill="#1e5b3f"/>
-      <line x1="-32" y1="-13" x2="32" y2="-13" stroke="#141210" stroke-width="2"/>
-      <line x1="24" y1="0" x2="44" y2="-5" stroke="#1e5b3f" stroke-width="3"/>
-      <polygon points="-8,9 -28,34 12,34" fill="#f59e0b" fill-opacity="0.36"/>
+        <div class="illu-wrap" style="margin-top:3px">
+  <svg viewBox="0 0 326 76" width="100%" height="76" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:#f3ede0;">
+    <!-- Courthouse Columns + Brass Scales -->
+    <polygon points="20,22 76,7 132,22" fill="#334155" stroke="#141210" stroke-width="1"/>
+    <rect x="24" y="22" width="104" height="3.5" fill="#1e293b"/>
+    <rect x="30" y="25.5" width="7" height="30" fill="#cbd5e1" stroke="#475569" stroke-width="0.7"/>
+    <rect x="115" y="25.5" width="7" height="30" fill="#cbd5e1" stroke="#475569" stroke-width="0.7"/>
+    <rect x="20" y="55.5" width="112" height="5" fill="#1e293b"/>
+    <line x1="76" y1="26" x2="76" y2="54" stroke="#141210" stroke-width="1.8"/>
+    <line x1="52" y1="32" x2="100" y2="32" stroke="#b4690e" stroke-width="1.8"/>
+    <polygon points="52,32 45,46 59,46" fill="none" stroke="#141210" stroke-width="1.2"/>
+    <polygon points="100,32 93,46 107,46" fill="none" stroke="#141210" stroke-width="1.2"/>
+    <text x="76" y="70" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.5" font-weight="900" fill="#9b1c1c">HUAWEI FRAUD VERDICT</text>
+    <line x1="158" y1="6" x2="158" y2="70" stroke="#9e927c" stroke-width="1.2"/>
+    <!-- Cartagena Dawn Sky, Palm, Storefront & Police Helicopter -->
+    <rect x="164" y="6" width="156" height="53" fill="#16324f"/>
+    <rect x="174" y="34" width="68" height="25" fill="#e2e8f0" stroke="#0f172a" stroke-width="0.9"/>
+    <rect x="174" y="34" width="68" height="7" fill="#dc2626"/>
+    <text x="208" y="39.5" text-anchor="middle" font-family="Segoe UI, Arial" font-size="5.5" font-weight="900" fill="#fff">EXITO MARKET</text>
+    <g transform="translate(268,20)">
+      <ellipse cx="0" cy="0" rx="20" ry="8" fill="#22c55e" stroke="#0f172a" stroke-width="0.9"/>
+      <line x1="-26" y1="-10" x2="26" y2="-10" stroke="#f8fafc" stroke-width="1.8"/>
+      <line x1="20" y1="0" x2="36" y2="-4" stroke="#22c55e" stroke-width="2.5"/>
+      <polygon points="-6,8 -38,39 10,39" fill="#fde047" fill-opacity="0.32"/>
     </g>
-    <text x="242" y="72" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9.4" font-weight="900" fill="#1e5b3f">CARTAGENA · 30 RESCUED</text>
+    <text x="242" y="70" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.5" font-weight="900" fill="#1e5b3f">CARTAGENA · 30 RESCUED</text>
   </svg></div>
         
     <article class="story">
@@ -499,198 +566,262 @@
         <span class="dateline">NEW YORK, 25 NOV</span>
       </div>
       <h3 class="story-head">Jury Convicts Huawei of Fraud, Acquits RICO</h3>
-      <p class="story-body">Brooklyn jury found Huawei guilty of bank fraud &amp; trade-secret conspiracy, cleared RICO.</p>
-    </article>
-    <article class="story">
-      <div class="story-meta">
-        <span class="pin" style="background:#16324f">9</span>
-        <span class="dateline">OTTAWA, 25 NOV</span>
-      </div>
-      <h3 class="story-head">Alto Rail Land Clash; Pentagon Rebukes F-35s</h3>
-      <p class="story-body">MPs fight fast-track expropriation for Toronto–Quebec rail; US warns Canada on defense.</p>
-    </article>
-    <article class="story">
-      <div class="story-meta">
-        <span class="pin" style="background:#16324f">10</span>
-        <span class="dateline">CARTAGENA / BRASILIA, 25 NOV</span>
-      </div>
-      <h3 class="story-head">30 Hostages Freed; Brazil Storms Displace 20K</h3>
-      <p class="story-body">Colombian raid ended 15h siege; floods hit S. Brazil as WHO pledges $2M for Cuba.</p>
+      <p class="story-body">Brooklyn jury found Huawei guilty of bank fraud &amp; trade-secret conspiracy; cleared RICO.</p>
     </article>
       </div>
 
       <div class="col-box">
         <div class="sec-bar" style="background:#9b1c1c">EUROPE &amp; MIDDLE EAST</div>
         <div class="illu-wrap">
-  <svg viewBox="0 0 324 86" width="100%" height="86" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:#f1ece0;">
-    <g stroke="#1e293b" stroke-width="2" fill="none">
-      <line x1="48" y1="10" x2="33" y2="64"/>
-      <line x1="48" y1="10" x2="63" y2="64"/>
-      <line x1="28" y1="24" x2="68" y2="24"/>
-      <line x1="25" y1="40" x2="71" y2="40"/>
+  <svg viewBox="0 0 326 78" width="100%" height="78" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:#f1ece0;">
+    <!-- Darkened Kyiv winter skyline -->
+    <rect x="8" y="8" width="144" height="52" fill="#0f172a"/>
+    <rect x="14" y="28" width="22" height="32" fill="#1e293b"/><rect x="40" y="20" width="26" height="40" fill="#334155"/><rect x="70" y="32" width="20" height="28" fill="#1e293b"/>
+    <rect x="46" y="26" width="4" height="4" fill="#fde047"/><rect x="54" y="34" width="4" height="4" fill="#fde047"/>
+    <!-- Shattered high-voltage pylon & lightning -->
+    <g stroke="#cbd5e1" stroke-width="1.7" fill="none">
+      <line x1="112" y1="12" x2="99" y2="60"/><line x1="112" y1="12" x2="125" y2="60"/>
+      <line x1="94" y1="24" x2="130" y2="24"/><line x1="92" y1="38" x2="132" y2="38"/>
     </g>
-    <polygon points="94,14 80,38 92,38 84,60 108,32 95,32" fill="#9b1c1c" stroke="#141210" stroke-width="1"/>
-    <text x="66" y="77" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9.8" font-weight="900" fill="#9b1c1c">5 REGIONS BLACKOUT</text>
-    <line x1="158" y1="8" x2="158" y2="78" stroke="#b5aa93" stroke-width="1.4"/>
-    <path d="M 192 58 A 48 48 0 0 1 288 58" fill="none" stroke="#1e5b3f" stroke-width="9"/>
-    <path d="M 226 12 A 48 48 0 0 1 288 58" fill="none" stroke="#9b1c1c" stroke-width="9"/>
-    <line x1="240" y1="58" x2="279" y2="28" stroke="#141210" stroke-width="3.2" stroke-linecap="round"/>
-    <circle cx="240" cy="58" r="5" fill="#141210"/>
-    <text x="240" y="77" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9.8" font-weight="900" fill="#9b1c1c">UK CAP +26% · £2,166</text>
+    <polygon points="136,12 124,33 134,33 128,54 148,28 137,28" fill="#ef4444" stroke="#fef08a" stroke-width="0.9"/>
+    <text x="80" y="72" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.6" font-weight="900" fill="#9b1c1c">5 REGIONS BLACKOUT</text>
+    <line x1="160" y1="6" x2="160" y2="72" stroke="#9e927c" stroke-width="1.2"/>
+    <!-- Ofgem Meter Dial -->
+    <path d="M 192 54 A 46 46 0 0 1 284 54" fill="none" stroke="#1e5b3f" stroke-width="8"/>
+    <path d="M 224 10 A 46 46 0 0 1 284 54" fill="none" stroke="#dc2626" stroke-width="8"/>
+    <line x1="238" y1="54" x2="275" y2="25" stroke="#141210" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="238" cy="54" r="4.5" fill="#141210"/>
+    <text x="238" y="42" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="900" fill="#9b1c1c">+26%</text>
+    <text x="240" y="72" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.6" font-weight="900" fill="#9b1c1c">UK CAP £2,166</text>
   </svg></div>
         
     <article class="story">
       <div class="story-meta">
-        <span class="pin" style="background:#9b1c1c">11</span>
-        <span class="dateline">KYIV / BRUSSELS, 25 NOV</span>
+        <span class="pin" style="background:#9b1c1c">9</span>
+        <span class="dateline">KYIV / LONDON, 25 NOV</span>
       </div>
-      <h3 class="story-head">Strikes Black Out 5 Regions; €70B EU Call</h3>
-      <p class="story-body">Overnight raids hit Ukraine’s grid; 90 European figures urge €70B 2027 pledge.</p>
+      <h3 class="story-head">Strikes Black Out 5 Regions; UK Cap +26%</h3>
+      <p class="story-body">Overnight raids hit Ukraine’s winter grid; Ofgem hikes typical UK bills to £2,166 Jan. 1.</p>
     </article>
     <article class="story">
       <div class="story-meta">
-        <span class="pin" style="background:#9b1c1c">12</span>
-        <span class="dateline">LONDON, 25 NOV</span>
+        <span class="pin" style="background:#9b1c1c">10</span>
+        <span class="dateline">BRUSSELS / WARSAW, 25 NOV</span>
       </div>
-      <h3 class="story-head">Ofgem Lifts UK Energy Cap 26% to £2,166</h3>
-      <p class="story-body">Jan. 1 bill spike follows gas surge; MI5 warns UK defense firms of sabotage plots.</p>
+      <h3 class="story-head">90 Leaders Urge €70B Ukraine Pledge; E5 Drills</h3>
+      <p class="story-body">Manifesto precedes Thursday summit; 2,800 allied troops wrap Poland deployment drills.</p>
     </article>
-    <article class="story">
-      <div class="story-meta">
-        <span class="pin" style="background:#9b1c1c">13</span>
-        <span class="dateline">WARSAW / FRANKFURT, 25 NOV</span>
-      </div>
-      <h3 class="story-head">E5 Force Drills Wrap; ECB Slate Takes Shape</h3>
-      <p class="story-body">2,800 troops drilled in Poland &amp; launched AI hub; Spain’s de Cos leads ECB talks.</p>
-    </article>
-        <div class="illu-wrap" style="margin-top:4px">
-  <svg viewBox="0 0 324 84" width="100%" height="84" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:#f7efe1;">
-    <rect x="18" y="24" width="14" height="36" fill="#334155"/>
-    <rect x="38" y="16" width="9" height="44" fill="#475569"/>
-    <polygon points="38,16 42.5,4 47,16" fill="#dc2626"/>
-    <circle cx="42.5" cy="8" r="6.5" fill="#f59e0b" fill-opacity="0.9"/>
-    <path d="M 48 8 Q 64 2 76 12" fill="none" stroke="#64748b" stroke-width="2"/>
-    <path d="M 0 60 Q 24 55 48 60 T 96 60 T 144 60 T 192 60 T 240 60 T 324 60 L 324 84 L 0 84 Z" fill="#16324f"/>
-    <polygon points="104,57 216,57 228,46 98,46" fill="#1e293b"/>
-    <rect x="114" y="34" width="24" height="12" fill="#e2e8f0" stroke="#1e293b" stroke-width="1"/>
-    <rect x="148" y="42" width="54" height="4" fill="#9b1c1c"/>
-    <polygon points="212,51 222,34 228,46 239,36 233,51 245,55 227,57" fill="#ef4444" stroke="#facc15" stroke-width="1"/>
-    <circle cx="280" cy="26" r="18" fill="none" stroke="#9b1c1c" stroke-width="1.2" stroke-dasharray="3,2"/>
-    <circle cx="280" cy="26" r="10" fill="none" stroke="#9b1c1c" stroke-width="1.2"/>
-    <line x1="272" y1="26" x2="288" y2="26" stroke="#141210" stroke-width="1.8"/>
-    <line x1="280" y1="18" x2="280" y2="34" stroke="#141210" stroke-width="1.8"/>
-    <text x="162" y="77" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="900" fill="#fde68a">RAS TANURA STRIKES · HORMUZ TANKER MINES</text>
+        <div class="illu-wrap" style="margin-top:3px">
+  <svg viewBox="0 0 326 76" width="100%" height="76" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:#f7efe1;">
+    <!-- Industrial Refinery Towers & Smoke/Fire -->
+    <rect x="14" y="24" width="13" height="30" fill="#334155"/><rect x="31" y="18" width="11" height="36" fill="#475569"/>
+    <rect x="46" y="13" width="8" height="41" fill="#334155"/>
+    <polygon points="46,13 50,3 54,13" fill="#dc2626"/>
+    <circle cx="50" cy="7" r="6" fill="#f59e0b" fill-opacity="0.9"/>
+    <path d="M 54 7 Q 72 2 88 12 Q 98 8 106 16" fill="none" stroke="#64748b" stroke-width="2.6"/>
+    <path d="M 0 54 Q 24 49 48 54 T 96 54 T 144 54 T 192 54 T 240 54 T 326 54 L 326 76 L 0 76 Z" fill="#16324f"/>
+    <!-- Oil Tanker Hull & Blast -->
+    <polygon points="104,51 218,51 230,40 98,40" fill="#1e293b"/>
+    <rect x="114" y="29" width="24" height="11" fill="#e2e8f0" stroke="#1e293b" stroke-width="0.9"/>
+    <rect x="148" y="36" width="54" height="4" fill="#9b1c1c"/>
+    <polygon points="212,46 222,28 228,40 239,30 233,46 246,50 227,52" fill="#ef4444" stroke="#facc15" stroke-width="0.9"/>
+    <!-- Naval Radar Sweep -->
+    <circle cx="282" cy="24" r="17" fill="none" stroke="#9b1c1c" stroke-width="1.1" stroke-dasharray="3,2"/>
+    <circle cx="282" cy="24" r="9.5" fill="none" stroke="#9b1c1c" stroke-width="1.1"/>
+    <line x1="274" y1="24" x2="290" y2="24" stroke="#141210" stroke-width="1.6"/>
+    <line x1="282" y1="16" x2="282" y2="32" stroke="#141210" stroke-width="1.6"/>
+    <text x="163" y="69" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.8" font-weight="900" fill="#fde68a">RAS TANURA STRIKES · HORMUZ TANKER MINES</text>
   </svg></div>
         
     <article class="story">
       <div class="story-meta">
-        <span class="pin" style="background:#b4690e">14</span>
+        <span class="pin" style="background:#b4690e">11</span>
         <span class="dateline">RIYADH / HORMUZ, 25 NOV</span>
       </div>
       <h3 class="story-head">Houthis Strike Refinery; Mines Hit Tankers</h3>
-      <p class="story-body">Fires hit Ras Tanura &amp; Riyadh hub; blasts struck two tankers in Strait of Hormuz.</p>
-    </article>
-    <article class="story">
-      <div class="story-meta">
-        <span class="pin" style="background:#b4690e">15</span>
-        <span class="dateline">GAZA / CAIRO, 25 NOV</span>
-      </div>
-      <h3 class="story-head">Gaza Meningitis Alert; Red Sea Pact &amp; $55M Aid</h3>
-      <p class="story-body">Medics warn of Gaza water crisis; Egypt &amp; Sudan guard Red Sea with Port Sudan water aid.</p>
+      <p class="story-body">Drone attacks spark fires at Ras Tanura &amp; Riyadh hub as blasts rock two Hormuz tankers.</p>
     </article>
       </div>
 
       <div class="col-box">
-        <div class="sec-bar" style="background:#1e5b3f">AFRICA, SCIENCE &amp; SPORT</div>
+        <div class="sec-bar" style="background:#1e5b3f">AFRICA, SPACE &amp; SPORT</div>
         <div class="illu-wrap">
-  <svg viewBox="0 0 324 86" width="100%" height="86" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:#f3ede0;">
-    <path d="M 20 12 L 60 12 L 60 38 C 60 54 40 64 40 64 C 40 64 20 54 20 38 Z" fill="#9b1c1c" stroke="#141210" stroke-width="1.3"/>
-    <rect x="36" y="21" width="8" height="28" fill="#fff"/>
-    <rect x="26" y="31" width="28" height="8" fill="#fff"/>
-    <text x="72" y="28" font-family="Segoe UI, Arial" font-size="10.8" font-weight="900" fill="#9b1c1c">ITURI EBOLA: 11,613</text>
-    <text x="72" y="45" font-family="Segoe UI, Arial" font-size="9.6" font-weight="800" fill="#141210">WHO TEAM TRAPPED · 5,678 DEAD</text>
-    <text x="72" y="62" font-family="Segoe UI, Arial" font-size="9.6" font-weight="800" fill="#1e5b3f">AFCON RESTORED TO SENEGAL</text>
-    <g transform="translate(284,42)">
-      <path d="M -16,-22 L 16,-22 L 11,4 C 7,12 -7,12 -11,4 Z" fill="#d97706" stroke="#141210" stroke-width="1.3"/>
-      <rect x="-4" y="10" width="8" height="10" fill="#b4690e"/>
-      <rect x="-12" y="20" width="24" height="6" fill="#141210"/>
-      <text x="0" y="-5" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="900" fill="#fff">CAF</text>
+  <svg viewBox="0 0 326 78" width="100%" height="78" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:#f3ede0;">
+    <!-- Field Medical Tent -->
+    <polygon points="14,54 34,20 94,20 114,54" fill="#e2e8f0" stroke="#334155" stroke-width="1.2"/>
+    <polygon points="50,54 64,28 78,54" fill="#334155"/>
+    <rect x="26" y="28" width="18" height="18" rx="2" fill="#9b1c1c"/>
+    <rect x="33" y="31" width="4" height="12" fill="#fff"/>
+    <rect x="29" y="35" width="12" height="4" fill="#fff"/>
+    <text x="64" y="71" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.5" font-weight="900" fill="#9b1c1c">ITURI EBOLA · 11,613</text>
+    <line x1="126" y1="6" x2="126" y2="72" stroke="#9e927c" stroke-width="1.2"/>
+    <!-- Stadium Floodlights + Golden AFCON Trophy -->
+    <rect x="134" y="8" width="184" height="49" fill="#16324f" stroke="#141210" stroke-width="1"/>
+    <polygon points="142,10 185,57 205,57" fill="#fde047" fill-opacity="0.16"/>
+    <polygon points="310,10 267,57 247,57" fill="#fde047" fill-opacity="0.16"/>
+    <g transform="translate(226,33)">
+      <path d="M -14,-18 L 14,-18 L 9,3 C 6,10 -6,10 -9,3 Z" fill="#f59e0b" stroke="#fef08a" stroke-width="1"/>
+      <rect x="-3.5" y="8" width="7" height="8" fill="#d97706"/>
+      <rect x="-11" y="16" width="22" height="5" fill="#f8fafc"/>
+      <text x="0" y="-4" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7.5" font-weight="900" fill="#fff">CAF</text>
     </g>
+    <text x="226" y="71" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.5" font-weight="900" fill="#1e5b3f">AFCON CROWN → SENEGAL</text>
   </svg></div>
         
     <article class="story">
       <div class="story-meta">
-        <span class="pin" style="background:#1e5b3f">16</span>
+        <span class="pin" style="background:#1e5b3f">12</span>
         <span class="dateline">ITURI, DR CONGO, 25 NOV</span>
       </div>
       <h3 class="story-head">Fighting Traps WHO Ebola Team; 11,613 Cases</h3>
-      <p class="story-body">Clashes pinned responders in maternity ward as Bundibugyo toll hits 5,678 deaths.</p>
+      <p class="story-body">Clashes pin responders in maternity ward as Bundibugyo toll hits 5,678 deaths.</p>
     </article>
     <article class="story">
       <div class="story-meta">
-        <span class="pin" style="background:#1e5b3f">17</span>
+        <span class="pin" style="background:#1e5b3f">13</span>
         <span class="dateline">DAKAR / JOBURG, 25 NOV</span>
       </div>
-      <h3 class="story-head">CAS Restores AFCON Title to Senegal</h3>
-      <p class="story-body">Tribunal reversed Morocco ruling; Naspers profit +12% while South African rand slipped.</p>
+      <h3 class="story-head">CAS Restores AFCON Crown to Senegal</h3>
+      <p class="story-body">Tribunal reverses Morocco ruling; South African rand retreats against US dollar.</p>
     </article>
-    <article class="story">
-      <div class="story-meta">
-        <span class="pin" style="background:#1e5b3f">18</span>
-        <span class="dateline">TOKYO / TAIPEI, 25 NOV</span>
-      </div>
-      <h3 class="story-head">Japan Killer-Sat Launch; Taiwan Deepfakes</h3>
-      <p class="story-body">Jan. 22 Kairos orbit tracker set; BBC exposed Taiwan election deepfake ring.</p>
-    </article>
-        <div class="illu-wrap" style="margin-top:4px">
-  <svg viewBox="0 0 324 84" width="100%" height="84" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:#0e1f33;">
-    <!-- Left Half: Voyager 1 -->
-    <circle cx="26" cy="36" r="8" fill="#2563eb" stroke="#93c5fd" stroke-width="1.2"/>
-    <line x1="36" y1="36" x2="112" y2="36" stroke="#60a5fa" stroke-width="1.4" stroke-dasharray="4,2.5"/>
-    <g transform="translate(132,36)">
-      <ellipse cx="-6" cy="0" rx="6" ry="16" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
-      <line x1="0" y1="0" x2="26" y2="-13" stroke="#cbd5e1" stroke-width="1.6"/>
-      <line x1="0" y1="4" x2="20" y2="17" stroke="#f59e0b" stroke-width="1.8"/>
+        <div class="illu-wrap" style="margin-top:3px">
+  <svg viewBox="0 0 326 76" width="100%" height="76" xmlns="http://www.w3.org/2000/svg" style="display:block;border:1.5px solid #8f846f;background:#0e1f33;">
+    <circle cx="14" cy="14" r="1" fill="#fff"/><circle cx="72" cy="10" r="0.9" fill="#fde68a"/><circle cx="144" cy="14" r="1" fill="#fff"/>
+    <circle cx="24" cy="34" r="7" fill="#2563eb" stroke="#93c5fd" stroke-width="1.1"/>
+    <line x1="33" y1="34" x2="108" y2="34" stroke="#60a5fa" stroke-width="1.3" stroke-dasharray="3.5,2"/>
+    <g transform="translate(128,34)">
+      <ellipse cx="-6" cy="0" rx="5.5" ry="14" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+      <line x1="0" y1="0" x2="24" y2="-12" stroke="#cbd5e1" stroke-width="1.5"/>
+      <line x1="0" y1="4" x2="18" y2="15" stroke="#f59e0b" stroke-width="1.6"/>
     </g>
-    <text x="84" y="16" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9.5" font-weight="900" fill="#fde68a">VOYAGER 1 · 1 LIGHT-DAY</text>
-    <text x="84" y="74" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.6" font-weight="800" fill="#cbd5e1">25.9B KM · AI EXOPLANETS</text>
-    <line x1="168" y1="8" x2="168" y2="76" stroke="#475569" stroke-width="1.2"/>
-    <!-- Right Half: Sports -->
-    <rect x="180" y="12" width="60" height="32" rx="2" fill="#1e5b3f" stroke="#faf5e8" stroke-width="1"/>
-    <line x1="210" y1="12" x2="210" y2="44" stroke="#faf5e8" stroke-width="0.9"/>
-    <circle cx="210" cy="28" r="7" fill="none" stroke="#faf5e8" stroke-width="0.9"/>
-    <g transform="translate(282,28)">
-      <polygon points="-24,6 20,6 28,0 16,-6 -12,-7 -22,-2" fill="#dc2626" stroke="#fff" stroke-width="0.8"/>
-      <circle cx="-15" cy="7" r="5" fill="#0f172a" stroke="#cbd5e1" stroke-width="1.2"/>
-      <circle cx="12" cy="7" r="5" fill="#0f172a" stroke="#cbd5e1" stroke-width="1.2"/>
+    <text x="82" y="15" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.5" font-weight="900" fill="#fde68a">VOYAGER 1 · 1 LIGHT-DAY</text>
+    <text x="82" y="68" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7.8" font-weight="800" fill="#cbd5e1">25.9B KM · AI EXOPLANETS</text>
+    <line x1="166" y1="6" x2="166" y2="70" stroke="#475569" stroke-width="1.2"/>
+    <!-- UCL Pitch + Qatar F1 Car -->
+    <rect x="178" y="10" width="60" height="30" rx="2" fill="#1e5b3f" stroke="#faf5e8" stroke-width="0.9"/>
+    <line x1="208" y1="10" x2="208" y2="40" stroke="#faf5e8" stroke-width="0.8"/>
+    <circle cx="208" cy="25" r="6" fill="none" stroke="#faf5e8" stroke-width="0.8"/>
+    <g transform="translate(284,25)">
+      <polygon points="-24,5 20,5 28,0 16,-5 -12,-6 -22,-2" fill="#dc2626" stroke="#fff" stroke-width="0.8"/>
+      <circle cx="-15" cy="6" r="4.5" fill="#0f172a" stroke="#cbd5e1" stroke-width="1.1"/>
+      <circle cx="12" cy="6" r="4.5" fill="#0f172a" stroke="#cbd5e1" stroke-width="1.1"/>
     </g>
-    <text x="246" y="61" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9.2" font-weight="900" fill="#fde68a">UCL MD5 · QATAR F1</text>
-    <text x="246" y="75" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.6" font-weight="800" fill="#ffffff">NBA CUP · TATUM 41 PTS</text>
+    <text x="246" y="55" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8.5" font-weight="900" fill="#fde68a">UCL MD5 · QATAR F1</text>
+    <text x="246" y="68" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" font-weight="800" fill="#ffffff">NBA CUP · TATUM 41 PTS</text>
   </svg></div>
         
     <article class="story">
       <div class="story-meta">
-        <span class="pin" style="background:#16324f">19</span>
-        <span class="dateline">PASADENA, 25 NOV</span>
+        <span class="pin" style="background:#16324f">14</span>
+        <span class="dateline">PASADENA / PARIS, 25 NOV</span>
       </div>
-      <h3 class="story-head">Voyager 1 Crosses One Light-Day From Earth</h3>
-      <p class="story-body">49-yr probe hit 25.9B km (24h signal lag) as AI tools spotted TESS exoplanets.</p>
+      <h3 class="story-head">Voyager 1 Hits 1 Light-Day; UCL &amp; Qatar F1</h3>
+      <p class="story-body">49-yr probe reaches 25.9B km; PSG–Roma &amp; Sporting–Man Utd lead UCL; Tatum 41 pts.</p>
     </article>
-    <article class="story">
-      <div class="story-meta">
-        <span class="pin" style="background:#16324f">20</span>
-        <span class="dateline">PARIS / LUSAIL, 25 NOV</span>
       </div>
-      <h3 class="story-head">Champions League Night; Qatar F1 &amp; NBA Cup</h3>
-      <p class="story-body">PSG–Roma &amp; Sporting–Man Utd lead Matchday 5; Tatum scored 41 for Boston.</p>
-    </article>
+    </section>
+
+    <section class="brief-band">
+      <div class="brief-banner">
+        <span>WORLD IN BRIEF · 24 ADDITIONAL DISPATCHES (WEDNESDAY, 25 NOVEMBER 2026)</span>
+        <span>ALL 6 INHABITED CONTINENTS</span>
+      </div>
+      <div class="brief-grid">
+        <div class="brief-col">
+          <div class="brief-head" style="background:#16324f">AMERICAS · 6 BRIEFS</div>
+          
+      <div class="brief-item">
+        <span class="brief-city" style="color:#16324f">OTTAWA:</span> Alto high-speed rail land-seizure bill sparks MP clash; 750 Parks Canada jobs cut.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#16324f">OTTAWA / TORONTO:</span> Pentagon rebukes Canada F-35 review; PWHL Sceptres blank Charge 4-0.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#16324f">CARTAGENA:</span> Colombian commandos raid Exito supermarket after 15h siege, rescuing 30 hostages.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#16324f">MEXICO CITY:</span> Paseo de la Reforma march to Zocalo triggers U.S. Embassy transit alert.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#16324f">BRASILIA / HAVANA:</span> Deadly Southern Brazil storms displace 20,000; WHO pledges $2M for Cuba.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#16324f">CHICAGO / IOWA:</span> Thanksgiving flyers pack O’Hare; PAHO issues H5N1 alert; Iowa ordnance blast set.
+      </div>
+        </div>
+        <div class="brief-col">
+          <div class="brief-head" style="background:#9b1c1c">EUROPE · 6 BRIEFS</div>
+          
+      <div class="brief-item">
+        <span class="brief-city" style="color:#9b1c1c">LONDON:</span> MI5 &amp; MoD warn defense suppliers of escalating Russian proxy sabotage threats.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#9b1c1c">FRANKFURT:</span> ECB leadership talks line up Spain’s de Cos, France’s Boone &amp; Germany’s Brunnermeier.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#9b1c1c">WARSAW / RENNES:</span> E5 nations (FR, DE, IT, PL, SE) launch ICAID military AI defense center.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#9b1c1c">BRUSSELS:</span> EU envoys weigh Russian tourist visa curbs ahead of Thursday Ukraine summit.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#9b1c1c">BRUSSELS:</span> Commission cites Germany, Spain, Italy &amp; Poland over foreign pension taxes.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#9b1c1c">BERLIN / LONDON:</span> IW report shows Poland +€6.7B net EU recipient; UK-EU trade rules assessed.
+      </div>
+        </div>
+        <div class="brief-col">
+          <div class="brief-head" style="background:#b4690e">MIDEAST &amp; AFRICA · 6 BRIEFS</div>
+          
+      <div class="brief-item">
+        <span class="brief-city" style="color:#9b1c1c">GAZA:</span> Medics warn of rising meningitis cases and acute water shortages across enclave.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#9b1c1c">JERUSALEM / BEIRUT:</span> Israel alleges Iran chemical arms effort; IDF maintains south Lebanon zones.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#9b1c1c">WASHINGTON / DUBAI:</span> U.S. issues Mideast citizen alerts; Trump says Iran operations funded through Jan.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#9b1c1c">CAIRO / PORT SUDAN:</span> Egypt &amp; Sudan bar non-coastal Red Sea forces; AfDB/UNICEF set $55M water aid.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#9b1c1c">ABUJA / NAIROBI:</span> African ministers urge media alliance; Kenya and Zimbabwe sign 8 pacts.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#9b1c1c">JOHANNESBURG:</span> Naspers core profit rises 12% on Tencent; court convicts Russia-bound recruit.
+      </div>
+        </div>
+        <div class="brief-col">
+          <div class="brief-head" style="background:#1e5b3f">ASIA-PACIFIC · 6 BRIEFS</div>
+          
+      <div class="brief-item">
+        <span class="brief-city" style="color:#1e5b3f">TOKYO:</span> Defense Ministry schedules Jan. 22 Kairos rocket test to track killer satellites.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#1e5b3f">TAIPEI / LONDON:</span> BBC Verify exposes China-linked AI deepfake network targeting Taiwan polls.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#1e5b3f">BEIJING / D.C.:</span> U.S.–China Board of Trade holds inaugural bilateral farm working group.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#1e5b3f">TOKYO / SINGAPORE:</span> Nikkei slides ~3% on AI sell-off; Asian data centers offload Nvidia GPUs West.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#1e5b3f">BANGKOK / MANILA:</span> Bank of Thailand targets 48% informal GDP; Philippine demand tightens rice.
+      </div>
+      <div class="brief-item">
+        <span class="brief-city" style="color:#1e5b3f">MALE / JAKARTA:</span> India’s Doval backs Indian Ocean security; Indonesia passes Asset Forfeiture law.
+      </div>
+        </div>
       </div>
     </section>
 
     <footer class="footer-bar">
       <span>THE WORLD TODAY · WEDNESDAY, 25 NOVEMBER 2026</span>
-      <span>8 LARGE ILLUSTRATED SCENES · WORLD MAP · 20 FLAGSHIP DISPATCHES</span>
-      <span>VERIFIED 25 NOV 2026</span>
+      <span>8 DRAWN SCENES · WORLD MAP · 14 LEAD STORIES + 24 BRIEFS (38 TOTAL)</span>
+      <span>VERIFIED 25 NOV 2026 UTC</span>
     </footer>
   </div>
 </body>
