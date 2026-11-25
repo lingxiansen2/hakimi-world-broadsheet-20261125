@@ -3,13 +3,7 @@ import { execFileSync } from 'node:child_process';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { EDITION_META, HERO_STORY, MARKET_TICKERS, MIDDLE_COLS, TOP_RIGHT_COLS, WORLD_IN_BRIEF } from './news-data.mjs';
-import {
-  renderWorldMapSvg,
-  sceneAfricaRich,
-  sceneCourtCartagena,
-  sceneSpaceSportsRich,
-  sceneWashingtonCyber,
-} from './illustrations.mjs';
+import { renderWorldMapSvg } from './illustrations.mjs';
 
 const SCRIPTS_DIR = dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = resolve(SCRIPTS_DIR, '..');
@@ -413,9 +407,9 @@ function buildHtml() {
     <section class="middle-grid">
       <div class="col-box">
         <div class="sec-bar" style="background:#16324f">AMERICAS &amp; CYBER</div>
-        <div class="illu-wrap">${sceneWashingtonCyber()}</div>
+        <div class="illu-wrap">${renderPaintedPanel('art-cyber-defense.jpg', '$5B GOLDEN DOME · CIA/ODNI BREACH', 78, 'center 55%')}</div>
         ${MIDDLE_COLS.americas.top.map((s) => renderStory(s, '#16324f')).join('')}
-        <div class="illu-wrap" style="margin-top:3px">${sceneCourtCartagena()}</div>
+        <div class="illu-wrap" style="margin-top:3px">${renderPaintedPanel('art-justice-rescue.jpg', 'HUAWEI VERDICT · CARTAGENA 30 FREED', 76, 'center 48%')}</div>
         ${MIDDLE_COLS.americas.bottom.map((s) => renderStory(s, '#16324f')).join('')}
       </div>
 
@@ -429,9 +423,9 @@ function buildHtml() {
 
       <div class="col-box">
         <div class="sec-bar" style="background:#1e5b3f">AFRICA, SPACE &amp; SPORT</div>
-        <div class="illu-wrap">${sceneAfricaRich()}</div>
+        <div class="illu-wrap">${renderPaintedPanel('art-africa-ebola-cup.jpg', 'ITURI EBOLA: 11,613 · SENEGAL AFCON', 78, 'center 45%')}</div>
         ${MIDDLE_COLS.africaScienceSport.top.map((s) => renderStory(s, '#1e5b3f')).join('')}
-        <div class="illu-wrap" style="margin-top:3px">${sceneSpaceSportsRich()}</div>
+        <div class="illu-wrap" style="margin-top:3px">${renderPaintedPanel('art-voyager-sport.jpg', 'VOYAGER 1 LIGHT-DAY · UCL · F1', 76, 'center 50%')}</div>
         ${MIDDLE_COLS.africaScienceSport.bottom.map((s) => renderStory(s, '#16324f')).join('')}
       </div>
     </section>
